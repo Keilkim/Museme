@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python generate_placeholders.py:*)",
+      "Bash(Remove-Item -Path \"c:\\\\Users\\\\Razer\\\\Desktop\\\\Museme\\\\static\\\\images\\\\themes\\\\*\\\\*.svg\" -Force)",
+      "Bash(find:*)",
+      "Bash(gh auth status:*)",
+      "Bash(git init:*)",
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

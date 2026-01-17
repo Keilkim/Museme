@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/header.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/footer.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/login-modal.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/about.css') }}">
+{% endblock %}
+
+{% block content %}
+{% include "components/header.html" %}
+
+<main class="about-page">
+  <section class="intro-section">
+    <div class="intro-image-wrapper">
+      <img src="/static/images/about/intro.jpg" alt="뮤즈미 소개" class="intro-image">
+    </div>
+
+    <div class="intro-content neu-raised">
+      <h1>뮤즈미 소개</h1>
+      <p>
+        뮤즈미는 전통적인 아름다움과 현대적인 감각을 조화롭게 담아낸
+        프리미엄 악세서리 브랜드입니다.
+      </p>
+      <p>
+        정성스러운 수공예 기법과 엄선된 소재로 만들어진 우리의 제품들은
+        특별한 순간을 더욱 빛나게 해드립니다.
+      </p>
+    </div>
+  </section>
+</main>
+
+{% include "components/footer.html" %}
+
+{% include "components/login-modal.html" %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+<script src="{{ url_for('static', filename='js/components/header.js') }}"></script>
+<script src="{{ url_for('static', filename='js/components/footer.js') }}"></script>
+{% endblock %}

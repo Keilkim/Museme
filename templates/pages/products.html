@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/header.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/footer.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/login-modal.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/products.css') }}">
+{% endblock %}
+
+{% block content %}
+{% include "components/header.html" %}
+
+<main class="products-page">
+  <!-- 카테고리 대표 이미지 -->
+  <section class="category-hero">
+    <img src="/static/images/themes/{{ theme }}/hero.png" alt="{{ theme_name }}">
+    <h1 class="category-title">{{ theme_name }}</h1>
+  </section>
+
+  <div class="products-container">
+    <!-- 필터링 사이드바 -->
+    <aside class="filter-sidebar neu-raised">
+      <h2 class="theme-name">{{ theme_name }}</h2>
+      <ul class="filter-list">
+        <li><button data-filter="all" class="filter-btn active">전체</button></li>
+        <li><button data-filter="earring" class="filter-btn">귀걸이</button></li>
+        <li><button data-filter="necklace" class="filter-btn">목걸이</button></li>
+        <li><button data-filter="ring" class="filter-btn">반지</button></li>
+        <li><button data-filter="bracelet" class="filter-btn">팔찌</button></li>
+        <li><button data-filter="hairpin" class="filter-btn">머리장식</button></li>
+        <li><button data-filter="etc" class="filter-btn">기타</button></li>
+      </ul>
+    </aside>
+
+    <!-- 제품 갤러리 -->
+    <section class="product-gallery">
+      <div class="gallery-header">
+        <p class="product-count">총 <strong id="product-count">0</strong>개의 상품이 있습니다</p>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <!-- 제품 유닛들이 동적으로 렌더링됨 -->
+      </div>
+    </section>
+  </div>
+</main>
+
+{% include "components/footer.html" %}
+
+{% include "components/login-modal.html" %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // 서버에서 전달받은 테마 정보
+  window.THEME = "{{ theme }}";
+</script>
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+<script src="{{ url_for('static', filename='js/components/header.js') }}"></script>
+<script src="{{ url_for('static', filename='js/components/footer.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/products.js') }}"></script>
+{% endblock %}

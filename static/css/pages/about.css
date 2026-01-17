@@ -1,0 +1,50 @@
+.about-page {
+  min-height: 100vh;
+}
+
+.intro-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.intro-image-wrapper {
+  margin-bottom: 40px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.intro-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.intro-content {
+  padding: 40px;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.intro-content h1 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.intro-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 16px;
+}
+
+@media (max-width: 767px) {
+  .intro-content {
+    padding: 24px;
+  }
+
+  .intro-content h1 {
+    font-size: 24px;
+  }
+}

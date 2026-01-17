@@ -1,0 +1,51 @@
+<div class="modal-overlay" id="auth-modal">
+  <div class="auth-modal neu-card">
+    <button class="modal-close" id="modal-close-btn">&times;</button>
+
+    <!-- 탭 메뉴 -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">로그인</button>
+      <button class="auth-tab" data-tab="signup">회원가입</button>
+    </div>
+
+    <!-- 로그인 폼 -->
+    <form id="login-form" class="auth-form active">
+      <div class="input-group">
+        <label for="login-email">이메일</label>
+        <input type="email" id="login-email" class="neu-inset" placeholder="example@email.com" required>
+        <span class="error-msg" id="login-email-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label for="login-password">비밀번호</label>
+        <input type="password" id="login-password" class="neu-inset" placeholder="비밀번호" required>
+        <span class="error-msg" id="login-password-error"></span>
+      </div>
+
+      <button type="submit" class="submit-btn neu-button">로그인</button>
+    </form>
+
+    <!-- 회원가입 폼 -->
+    <form id="signup-form" class="auth-form">
+      <div class="input-group">
+        <label for="signup-email">이메일</label>
+        <input type="email" id="signup-email" class="neu-inset" placeholder="example@email.com" required>
+        <span class="error-msg" id="signup-email-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label for="signup-password">비밀번호</label>
+        <input type="password" id="signup-password" class="neu-inset" placeholder="6자 이상" required>
+        <span class="error-msg" id="signup-password-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label for="signup-password-confirm">비밀번호 확인</label>
+        <input type="password" id="signup-password-confirm" class="neu-inset" placeholder="비밀번호 확인" required>
+        <span class="error-msg" id="signup-password-confirm-error"></span>
+      </div>
+
+      <button type="submit" class="submit-btn neu-button">회원가입</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,330 @@
+/* ==========================================================================
+   Footer Component - Neumorphism Style
+   MUZ:ME Shopping Mall
+   ========================================================================== */
+
+/* Footer Base */
+.footer {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 60px 0 40px;
+  margin-top: auto;
+  /* 뉴모피즘 상단 음각 효과 */
+}
+
+/* Footer Container - 3열 그리드 */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ==========================================================================
+   Footer Left - 고객센터 영역
+   ========================================================================== */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-self: flex-end;
+}
+
+.customer-service {
+  /* 뉴모피즘 카드 스타일 */
+  background: var(--bg-primary);
+  border-radius: var(--border-radius);
+}
+
+.cs-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cs-phone {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.cs-hours {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--text-primary);
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Footer Center - 로고 & SNS
+   ========================================================================== */
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+.footer-logo {
+  /* 뉴모피즘 로고 컨테이너 */
+  background: var(--bg-primary);
+  border-radius: var(--border-radius);
+}
+
+.footer-logo img {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+}
+
+.footer-logo:hover img {
+  filter: grayscale(0%);
+}
+
+/* SNS Links */
+.sns-links {
+  display: flex;
+  gap: 16px;
+}
+
+.sns-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  /* 뉴모피즘 버튼 효과 */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1),
+              -4px -4px 8px rgba(255, 255, 255, 0.7);
+}
+
+.sns-btn:hover {
+  /* 뉴모피즘 눌린 효과 */
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+              inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+  color: var(--text-primary);
+}
+
+.sns-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.sns-btn.instagram:hover {
+  color: var(--social-instagram);
+}
+
+.sns-btn.kakao:hover {
+  color: var(--social-kakao);
+}
+
+/* Copyright */
+.copyright {
+  font-size: 12px;
+  color: var(--text-light);
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   Footer Right - 회사 정보
+   ========================================================================== */
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.company-info {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.company-info dt {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.company-info dd {
+  margin: 0;
+  color: var(--text-tertiary);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+/* 태블릿: 2열 레이아웃 */
+@media (max-width: 992px) {
+  .footer {
+    padding: 50px 0 35px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .footer-center {
+    grid-column: 1 / -1;
+    order: -1;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .footer-right {
+    justify-content: flex-start;
+  }
+}
+
+/* 모바일: 1열 레이아웃 */
+@media (max-width: 576px) {
+  .footer {
+    padding: 40px 0 30px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-left {
+    align-items: center;
+  }
+
+  .customer-service {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .cs-phone {
+    font-size: 24px;
+  }
+
+  .footer-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 20px;
+  }
+
+  .footer-links a::after {
+    display: none;
+  }
+
+  .footer-center {
+    padding-bottom: 25px;
+  }
+
+  .footer-logo {
+    padding: 16px 24px;
+  }
+
+  .footer-logo img {
+    max-width: 100px;
+  }
+
+  .sns-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .sns-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-right {
+    justify-content: center;
+  }
+
+  .company-info {
+    text-align: left;
+    max-width: 280px;
+    font-size: 12px;
+  }
+
+  .copyright {
+    font-size: 11px;
+  }
+}
+
+/* 아주 작은 화면 */
+@media (max-width: 360px) {
+  .footer-container {
+    padding: 0 15px;
+  }
+
+  .customer-service {
+    padding: 20px;
+  }
+
+  .cs-phone {
+    font-size: 22px;
+  }
+
+  .footer-links {
+    gap: 6px 16px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+}

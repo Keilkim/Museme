@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/header.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/footer.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/login-modal.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/product-detail.css') }}">
+{% endblock %}
+
+{% block content %}
+{% include "components/header.html" %}
+
+<main class="product-detail-page">
+  <!-- 상품 정보 섹션 -->
+  <section class="product-info-section">
+    <div class="product-main-image neu-raised">
+      <img id="main-product-image" src="" alt="">
+    </div>
+
+    <div class="purchase-info neu-raised">
+      <h1 class="product-name" id="product-name"></h1>
+      <p class="product-material" id="product-material"></p>
+
+      <div class="price-info">
+        <div class="price-row">
+          <span class="price-label">구매가</span>
+          <span class="price-value" id="buy-price"></span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">대여가</span>
+          <span class="price-value" id="rent-price"></span>
+        </div>
+      </div>
+
+      <div class="purchase-type-toggle">
+        <button class="type-btn active" data-type="buy">구매</button>
+        <button class="type-btn" data-type="rent">대여</button>
+      </div>
+
+      <div class="options-section">
+        <label class="option-label">옵션 선택</label>
+        <select class="option-dropdown neu-inset" id="product-options">
+          <option value="">옵션을 선택하세요</option>
+        </select>
+      </div>
+
+      <div class="action-buttons">
+        <button class="buy-now-btn neu-button primary" id="buy-now-btn">구매하기</button>
+        <button class="add-cart-btn neu-button secondary" id="add-cart-btn">장바구니에 넣기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 상품 상세 정보 -->
+  <section class="product-detail-section">
+    <img class="main-image" id="representative-image" src="" alt="대표 이미지">
+
+    <div class="product-description" id="product-description"></div>
+
+    <div class="detail-image-group" id="detail-images">
+      <!-- 디테일 이미지 동적 로드 -->
+    </div>
+
+    <div class="wearing-shot-group" id="wearing-shots">
+      <!-- 착용샷 이미지 동적 로드 -->
+    </div>
+  </section>
+
+  <!-- 구매 전 확인 사항 -->
+  <section class="purchase-notice neu-inset">
+    <h3>구매 전 확인 사항</h3>
+    <div class="notice-content">
+      <h4>배송 안내</h4>
+      <ul>
+        <li>제품은 우체국 택배로 출고됩니다.</li>
+        <li>3만원 이상 구매 시 무료배송, 미만의 경우 배송비 3,000원이 부과됩니다.</li>
+        <li>일반 배송: 평일 오전 9시 이전 주문 완료 시 당일 출고됩니다.</li>
+        <li>주문 제작: 영업일 기준 최대 14일 제작 기간 소요됩니다.</li>
+      </ul>
+
+      <h4>취소 안내</h4>
+      <ul>
+        <li>[상품 준비 중/배송 준비] 단계에서만 주문 취소가 가능합니다.</li>
+        <li>주문 제작 상품은 단순 변심으로 인한 취소가 불가능합니다.</li>
+      </ul>
+
+      <h4>교환/반품 안내</h4>
+      <ul>
+        <li>미착용 제품의 경우 배송 완료일 포함 7일 이내 교환 및 반품 접수가 가능합니다.</li>
+        <li>고객 변심으로 인한 반품의 경우 왕복 배송비 6,000원은 고객님 부담입니다.</li>
+      </ul>
+
+      <h4>AS 안내</h4>
+      <ul>
+        <li>수선은 본사(02-3284-1300)를 통해 접수 가능합니다.</li>
+        <li>택배 이용 시 배송비는 고객 부담입니다.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+{% include "components/footer.html" %}
+
+{% include "components/login-modal.html" %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+  window.PRODUCT_ID = {{ product_id }};
+</script>
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+<script src="{{ url_for('static', filename='js/components/header.js') }}"></script>
+<script src="{{ url_for('static', filename='js/components/footer.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages/product-detail.js') }}"></script>
+{% endblock %}

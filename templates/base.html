@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="{% block description %}MUZ:ME - 당신만의 음악 쇼핑몰{% endblock %}">
+
+    <title>{% block title %}MUZ:ME{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <!-- Google Fonts - Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+
+    <!-- CSS Variables -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+
+    <!-- Neumorphism Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/neumorphism.css') }}">
+
+    <!-- Layout Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+
+    <!-- Responsive Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+    <!-- Page-specific CSS -->
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    <!-- Header -->
+    {% block header %}{% endblock %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    {% block footer %}{% endblock %}
+
+    <!-- Utility Scripts -->
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+
+    <!-- API Module -->
+    <script src="{{ url_for('static', filename='js/api.js') }}"></script>
+
+    <!-- Page-specific Scripts -->
+    {% block scripts %}{% endblock %}
+</body>
+</html>
