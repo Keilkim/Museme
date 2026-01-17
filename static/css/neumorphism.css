@@ -8,8 +8,15 @@
   background: var(--bg-primary);
   border-radius: var(--border-radius);
   box-shadow:
-    20px 20px 30px var(--shadow-dark),
-    -20px -20px 30px var(--shadow-light);
+    20px 20px 40px var(--shadow-dark),
+    -20px -20px 40px var(--shadow-light);
+  transition: var(--transition);
+}
+
+.neu-raised:hover {
+  box-shadow:
+    25px 25px 50px var(--shadow-dark),
+    -25px -25px 50px var(--shadow-light);
 }
 
 /* 음각 효과 (Inset) */
@@ -57,6 +64,8 @@
 .neu-button--primary {
   background: var(--accent-red);
   color: white;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   box-shadow:
     6px 6px 12px var(--shadow-dark),
     -6px -6px 12px var(--shadow-light);
@@ -64,12 +73,27 @@
 
 .neu-button--primary:hover {
   background: var(--accent-red-dark);
+  transform: translateY(-1px);
 }
 
 .neu-button--primary:active {
+  transform: translateY(0);
   box-shadow:
     inset 4px 4px 8px rgba(0, 0, 0, 0.2),
     inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* 버튼 - 아웃라인 */
+.neu-button--outline {
+  background: transparent;
+  border: 2px solid var(--accent-red);
+  color: var(--accent-red);
+  box-shadow: none;
+}
+
+.neu-button--outline:hover {
+  background: var(--accent-red);
+  color: white;
 }
 
 /* 카드 스타일 */
@@ -209,4 +233,174 @@
   box-shadow:
     4px 4px 8px var(--shadow-dark),
     -4px -4px 8px var(--shadow-light);
+}
+
+/* ========================================
+ * 에디토리얼 컴포넌트
+ * ======================================== */
+
+/* 볼드 타이틀 스타일 */
+.editorial-title {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-black);
+  font-size: var(--font-size-display);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--accent-red);
+  line-height: 1.1;
+}
+
+.editorial-title--dark {
+  color: var(--text-primary);
+}
+
+.editorial-title--sm {
+  font-size: var(--font-size-h1);
+}
+
+/* 서브타이틀 */
+.editorial-subtitle {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* 액센트 라인 */
+.accent-line {
+  width: 60px;
+  height: 3px;
+  background: var(--accent-red);
+}
+
+.accent-line--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.accent-line--long {
+  width: 100px;
+}
+
+/* ========================================
+ * 실크/엘레강스 컴포넌트 (배너 스타일)
+ * ======================================== */
+
+/* 실크 카드 - 부드러운 그림자 */
+.silk-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--bg-primary) 100%);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow:
+    0 10px 40px var(--shadow-silk-dark),
+    0 2px 10px var(--shadow-silk);
+  transition: var(--transition-silk);
+}
+
+.silk-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 60px var(--shadow-silk-dark),
+    0 5px 20px var(--shadow-silk);
+}
+
+/* 메탈릭 텍스트 */
+.text-metallic {
+  background: linear-gradient(135deg, var(--accent-silver-light) 0%, var(--accent-silver) 50%, var(--accent-silver-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 플로팅 애니메이션 (배너 주얼리 느낌) */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-slow {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* 실크 버튼 */
+.silk-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--bg-primary) 100%);
+  border-radius: var(--border-radius-full);
+  box-shadow:
+    0 4px 15px var(--shadow-silk-dark),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  cursor: pointer;
+  transition: var(--transition-silk);
+  border: none;
+}
+
+.silk-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 25px var(--shadow-silk-dark),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* 실크 버튼 - 레드 포인트 */
+.silk-button--primary {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
+  color: white;
+  box-shadow:
+    0 4px 15px rgba(227, 36, 28, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.silk-button--primary:hover {
+  box-shadow:
+    0 8px 25px rgba(227, 36, 28, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* 그라데이션 보더 */
+.gradient-border {
+  position: relative;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-silver) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* 글래스모피즘 (모던 터치) */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius-lg);
+}
+
+/* 섹션 구분선 - 실크 느낌 */
+.divider-silk {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--shadow-dark) 50%, transparent 100%);
+  margin: var(--spacing-xxl) 0;
 }
