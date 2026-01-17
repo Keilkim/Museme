@@ -1,79 +1,58 @@
 /*
  * MUZ:ME Shopping Mall - CSS Variables
- * 디자인 시스템 변수 정의
+ * Museme — Banner airy + Neumorphism
  */
 
 :root {
-  /* 배경 색상 (뉴모피즘 - 크림 톤) */
-  --bg-primary: #F5F0EB;
-  --bg-secondary: #F5F0EB;
+  /* base palette (크림/베이지 톤) */
+  --bg: #F4EFEA;
+  --surface: #F0ECE8;
+  --surface-hi: #F7F3EF;
+  --surface-lo: #E9E4DE;
 
-  /* 포인트 색상 */
-  --accent-red: #E3241C;
-  --accent-red-dark: #C91E17;
+  --text: #1F1F1F;
+  --muted: #6F6A64;
 
-  /* 실버/메탈릭 (배너 스타일) */
-  --accent-silver: #C0C0C0;
-  --accent-silver-light: #E8E8E8;
-  --accent-silver-dark: #A0A0A0;
+  /* 주홍색 포인트 */
+  --accent: #E3241C;
+  --accent-dark: #C91E17;
 
-  /* 그림자 색상 (뉴모피즘 - 따뜻한 톤) */
-  --shadow-light: #FFFEFA;
-  --shadow-dark: #E0D8D0;
+  /* border radius */
+  --radius-xl: 26px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
 
-  /* 실크 그림자 (부드러운 느낌) */
-  --shadow-silk: rgba(0, 0, 0, 0.05);
-  --shadow-silk-dark: rgba(0, 0, 0, 0.1);
+  /* neumorphism shadows (베이지 배경용) */
+  --shadow-out: 12px 12px 26px rgba(17, 17, 17, .08),
+                -12px -12px 26px rgba(255, 255, 255, .85);
+  --shadow-out-soft: 10px 10px 22px rgba(17, 17, 17, .07),
+                     -10px -10px 22px rgba(255, 255, 255, .82);
+  --shadow-in: inset 7px 7px 14px rgba(17, 17, 17, .10),
+               inset -7px -7px 14px rgba(255, 255, 255, .78);
 
-  /* 테두리 반경 */
-  --border-radius: 10px;
-  --border-radius-sm: 5px;
-  --border-radius-lg: 20px;
-  --border-radius-xl: 30px;
-  --border-radius-full: 9999px;
+  --ring: 0 0 0 3px rgba(227, 36, 28, .18);
 
-  /* 폰트 */
-  --font-primary: 'Noto Sans KR', sans-serif;
-  --font-display: 'Playfair Display', serif;
+  /* font */
+  --font: ui-sans-serif, system-ui, -apple-system, "Pretendard", "Noto Sans KR", "Segoe UI", Arial, sans-serif;
 
-  /* 폰트 사이즈 */
-  --font-size-display: 48px;
-  --font-size-h1: 36px;
-  --font-size-h2: 28px;
-  --font-size-h3: 20px;
-  --font-size-body: 16px;
-  --font-size-sm: 14px;
-  --font-size-xs: 12px;
-
-  /* 폰트 웨이트 */
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
-  --font-weight-black: 900;
-
-  /* 레터 스페이싱 */
-  --letter-spacing-tight: -0.02em;
-  --letter-spacing-normal: 0;
-  --letter-spacing-wide: 0.1em;
-
-  /* 트랜지션 */
-  --transition: all 0.3s ease;
-  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-silk: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  /* 텍스트 색상 */
-  --text-primary: #333333;
-  --text-secondary: #666666;
-  --text-tertiary: #555555;
-  --text-muted: #999999;
-  --text-light: #888888;
+  /* ===== Legacy support (기존 클래스 호환) ===== */
+  --bg-primary: var(--bg);
+  --bg-secondary: var(--surface);
+  --accent-red: var(--accent);
+  --accent-red-dark: var(--accent-dark);
+  --shadow-light: rgba(255, 255, 255, .85);
+  --shadow-dark: rgba(17, 17, 17, .08);
+  --text-primary: var(--text);
+  --text-secondary: var(--muted);
+  --text-muted: var(--muted);
   --text-white: #FFFFFF;
+  --border-radius: var(--radius-lg);
+  --border-radius-sm: var(--radius-sm);
+  --border-radius-lg: var(--radius-xl);
+  --transition: all 0.12s ease;
 
-  /* 소셜 미디어 색상 */
-  --social-instagram: #E4405F;
-  --social-kakao: #FEE500;
-
-  /* 간격 */
+  /* spacing */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
@@ -81,7 +60,11 @@
   --spacing-xl: 32px;
   --spacing-xxl: 48px;
 
-  /* 컨테이너 최대 너비 */
-  --container-max-width: 1200px;
-  --container-padding: 20px;
+  /* container */
+  --container-max-width: 1120px;
+  --container-padding: 24px;
+
+  /* 소셜 미디어 색상 */
+  --social-instagram: #E4405F;
+  --social-kakao: #FEE500;
 }

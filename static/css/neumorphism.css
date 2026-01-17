@@ -1,406 +1,361 @@
 /*
  * MUZ:ME Shopping Mall - Neumorphism Styles
- * 뉴모피즘 공통 스타일
+ * Museme — Banner airy + Neumorphism
  */
 
-/* 돌출 효과 (Raised) */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+
+  /* 배너 공기감 + 주홍색이 살짝 스미는 배경 */
+  background:
+    radial-gradient(900px 600px at 18% 0%, rgba(227, 36, 28, .055), transparent 60%),
+    radial-gradient(900px 600px at 85% 22%, rgba(227, 36, 28, .040), transparent 55%),
+    linear-gradient(180deg, var(--bg) 0%, #F2ECE6 100%);
+}
+
+/* 기본 링크/포커스 */
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: none; box-shadow: var(--ring); border-radius: 10px; }
+
+/* =========================
+   Layout helpers
+========================= */
+.container {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+.section { padding: 28px 0; }
+
+/* =========================
+   Neumorphism primitives
+========================= */
+.nm-surface {
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface-lo));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-out);
+  border: 1px solid rgba(255, 255, 255, .55);
+}
+.nm-surface-soft {
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-out-soft);
+  border: 1px solid rgba(255, 255, 255, .55);
+}
+.nm-press { box-shadow: var(--shadow-in); }
+.nm-round { border-radius: var(--radius-xl); }
+
+/* =========================
+   Buttons
+========================= */
+button, .btn {
+  font: inherit;
+  color: var(--text);
+  border: 0;
+  cursor: pointer;
+}
+.btn, .nm-btn {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  box-shadow: var(--shadow-out-soft);
+  border: 1px solid rgba(255, 255, 255, .55);
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.btn:hover, .nm-btn:hover { transform: translateY(-1px); filter: brightness(1.02); }
+.btn:active, .nm-btn:active { transform: translateY(0px); box-shadow: var(--shadow-in); }
+
+.btn-accent, .nm-btn-accent {
+  position: relative;
+}
+.btn-accent::after, .nm-btn-accent::after {
+  content: "";
+  position: absolute; inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 0 0 1px rgba(227, 36, 28, .22);
+}
+
+/* =========================
+   Tabs (전통/데일리/공주왕자)
+========================= */
+.tabs, .nm-tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  box-shadow: var(--shadow-out-soft);
+  border: 1px solid rgba(255, 255, 255, .55);
+}
+.tabs button, .nm-tabs .tab {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--muted);
+  transition: color .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.tabs button:hover, .nm-tabs .tab:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, .35);
+}
+.tabs button.active, .nm-tabs .tab.is-active {
+  color: var(--text);
+  background: linear-gradient(145deg, var(--surface), var(--surface-hi));
+  box-shadow: var(--shadow-in);
+  position: relative;
+}
+.tabs button.active::after, .nm-tabs .tab.is-active::after {
+  content: "";
+  position: absolute;
+  left: 16px; right: 16px; bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(227, 36, 28, .65); /* 주홍색 포인트 */
+}
+
+/* =========================
+   Banner / Carousel wrapper
+========================= */
+.banner-wrap, .carousel-wrap {
+  padding: 18px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  box-shadow: var(--shadow-out);
+  border: 1px solid rgba(255, 255, 255, .55);
+}
+.banner, .carousel {
+  overflow: hidden;
+  border-radius: calc(var(--radius-xl) - 8px);
+  box-shadow: 0 18px 40px rgba(17, 17, 17, .10);
+  background: #fff;
+}
+.banner img, .carousel img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 캐러셀 컨트롤 */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  align-items: center;
+  margin-top: 14px;
+  color: var(--muted);
+}
+.carousel-arrow {
+  width: 40px; height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  box-shadow: var(--shadow-out-soft);
+  border: 1px solid rgba(255, 255, 255, .55);
+}
+.carousel-arrow:hover { transform: translateY(-1px); }
+.carousel-arrow:active { box-shadow: var(--shadow-in); transform: translateY(0); }
+.carousel-index {
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.carousel-index b {
+  color: var(--text);
+}
+.carousel-index b::after {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  margin-left: 8px;
+  border-radius: 999px;
+  background: rgba(227, 36, 28, .55); /* 주홍 포인트 */
+  vertical-align: middle;
+}
+
+/* =========================
+   Title
+========================= */
+.page-title, h1.title, h2.section-title {
+  margin: 18px 0 10px;
+  text-align: center;
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: .02em;
+}
+.page-title span, h1.title span, h2.section-title span {
+  box-shadow: inset 0 -10px 0 rgba(227, 36, 28, .08); /* 은은한 주홍 하이라이트 */
+}
+
+/* =========================
+   Product grid/cards
+========================= */
+.grid, .product-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1100px) {
+  .grid, .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .container { width: calc(100% - 28px); }
+  .grid, .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+
+.card, .product-card {
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  box-shadow: var(--shadow-out-soft);
+  border: 1px solid rgba(255, 255, 255, .55);
+  transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
+}
+.card:hover, .product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 16px 16px 34px rgba(17, 17, 17, .10),
+              -16px -16px 34px rgba(255, 255, 255, .88);
+}
+.card:active, .product-card:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-in);
+}
+.card .thumb, .product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, .38);
+}
+
+/* 카드에 주홍 포인트 */
+.card.accent, .product-card.accent {
+  position: relative;
+}
+.card.accent::before, .product-card.accent::before {
+  content: "";
+  position: absolute;
+  left: 14px; right: 14px; top: 12px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(227, 36, 28, .55), transparent);
+  opacity: .9;
+}
+
+/* =========================
+   Inputs
+========================= */
+input, select, textarea {
+  font: inherit;
+  border: 0;
+  outline: none;
+  color: var(--text);
+}
+.nm-input, input.nm-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, var(--surface), var(--surface-hi));
+  box-shadow: var(--shadow-in);
+  border: 1px solid rgba(255, 255, 255, .55);
+}
+.nm-input::placeholder { color: rgba(111, 106, 100, .75); }
+
+/* =========================
+   Utility
+========================= */
+.top-actions {
+  position: fixed;
+  top: 16px; right: 18px;
+  display: flex; gap: 10px;
+}
+.muted { color: var(--muted); }
+
+/* =========================
+   Legacy support (기존 클래스 호환)
+========================= */
 .neu-raised {
-  background: var(--bg-primary);
-  border-radius: var(--border-radius);
-  box-shadow:
-    20px 20px 40px var(--shadow-dark),
-    -20px -20px 40px var(--shadow-light);
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface-lo));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-out);
+  border: 1px solid rgba(255, 255, 255, .55);
   transition: var(--transition);
 }
-
 .neu-raised:hover {
-  box-shadow:
-    25px 25px 50px var(--shadow-dark),
-    -25px -25px 50px var(--shadow-light);
+  transform: translateY(-2px);
+  box-shadow: 16px 16px 34px rgba(17, 17, 17, .10),
+              -16px -16px 34px rgba(255, 255, 255, .88);
 }
 
-/* 음각 효과 (Inset) */
 .neu-inset {
-  background: var(--bg-primary);
-  border-radius: var(--border-radius);
-  box-shadow:
-    inset 10px 10px 20px var(--shadow-dark),
-    inset -10px -10px 20px var(--shadow-light);
+  background: linear-gradient(145deg, var(--surface), var(--surface-hi));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-in);
+  border: 1px solid rgba(255, 255, 255, .55);
 }
 
-/* 버튼 스타일 */
 .neu-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--bg-primary);
-  border-radius: var(--border-radius);
-  box-shadow:
-    8px 8px 16px var(--shadow-dark),
-    -8px -8px 16px var(--shadow-light);
-  color: var(--text-primary);
-  font-family: var(--font-primary);
-  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  box-shadow: var(--shadow-out-soft);
+  border: 1px solid rgba(255, 255, 255, .55);
+  color: var(--text);
+  font-family: var(--font);
   cursor: pointer;
-  transition: var(--transition);
-  border: none;
-  outline: none;
+  transition: transform .12s ease, box-shadow .12s ease;
 }
+.neu-button:hover { transform: translateY(-1px); }
+.neu-button:active { box-shadow: var(--shadow-in); transform: translateY(0); }
 
-.neu-button:hover {
-  box-shadow:
-    6px 6px 12px var(--shadow-dark),
-    -6px -6px 12px var(--shadow-light);
-}
-
-.neu-button:active {
-  box-shadow:
-    inset 6px 6px 12px var(--shadow-dark),
-    inset -6px -6px 12px var(--shadow-light);
-}
-
-/* 버튼 - 포인트 컬러 */
 .neu-button--primary {
-  background: var(--accent-red);
+  background: var(--accent);
   color: white;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  box-shadow:
-    6px 6px 12px var(--shadow-dark),
-    -6px -6px 12px var(--shadow-light);
+  box-shadow: var(--shadow-out-soft);
 }
-
 .neu-button--primary:hover {
-  background: var(--accent-red-dark);
-  transform: translateY(-1px);
+  background: var(--accent-dark);
 }
 
-.neu-button--primary:active {
-  transform: translateY(0);
-  box-shadow:
-    inset 4px 4px 8px rgba(0, 0, 0, 0.2),
-    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
-}
-
-/* 버튼 - 아웃라인 */
-.neu-button--outline {
-  background: transparent;
-  border: 2px solid var(--accent-red);
-  color: var(--accent-red);
-  box-shadow: none;
-}
-
-.neu-button--outline:hover {
-  background: var(--accent-red);
-  color: white;
-}
-
-/* 카드 스타일 */
 .neu-card {
-  background: var(--bg-primary);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
-  box-shadow:
-    10px 10px 20px var(--shadow-dark),
-    -10px -10px 20px var(--shadow-light);
-  transition: var(--transition);
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  box-shadow: var(--shadow-out-soft);
+  border: 1px solid rgba(255, 255, 255, .55);
+  transition: transform .14s ease, box-shadow .14s ease;
 }
-
 .neu-card:hover {
-  box-shadow:
-    15px 15px 25px var(--shadow-dark),
-    -15px -15px 25px var(--shadow-light);
+  transform: translateY(-2px);
 }
 
-/* 입력 필드 스타일 */
 .neu-input {
   width: 100%;
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--bg-primary);
-  border-radius: var(--border-radius);
-  box-shadow:
-    inset 4px 4px 8px var(--shadow-dark),
-    inset -4px -4px 8px var(--shadow-light);
-  border: none;
-  outline: none;
-  font-family: var(--font-primary);
-  font-size: 16px;
-  color: var(--text-primary);
-  transition: var(--transition);
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, var(--surface), var(--surface-hi));
+  box-shadow: var(--shadow-in);
+  border: 1px solid rgba(255, 255, 255, .55);
+  font-family: var(--font);
+  color: var(--text);
 }
+.neu-input::placeholder { color: var(--muted); }
 
-.neu-input::placeholder {
-  color: var(--text-muted);
-}
-
-.neu-input:focus {
-  box-shadow:
-    inset 6px 6px 12px var(--shadow-dark),
-    inset -6px -6px 12px var(--shadow-light);
-}
-
-/* 텍스트 영역 */
-.neu-textarea {
-  width: 100%;
-  min-height: 120px;
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--bg-primary);
-  border-radius: var(--border-radius);
-  box-shadow:
-    inset 4px 4px 8px var(--shadow-dark),
-    inset -4px -4px 8px var(--shadow-light);
-  border: none;
-  outline: none;
-  font-family: var(--font-primary);
-  font-size: 16px;
-  color: var(--text-primary);
-  resize: vertical;
-  transition: var(--transition);
-}
-
-.neu-textarea:focus {
-  box-shadow:
-    inset 6px 6px 12px var(--shadow-dark),
-    inset -6px -6px 12px var(--shadow-light);
-}
-
-/* 선택 박스 */
-.neu-select {
-  width: 100%;
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--bg-primary);
-  border-radius: var(--border-radius);
-  box-shadow:
-    inset 4px 4px 8px var(--shadow-dark),
-    inset -4px -4px 8px var(--shadow-light);
-  border: none;
-  outline: none;
-  font-family: var(--font-primary);
-  font-size: 16px;
-  color: var(--text-primary);
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right var(--spacing-md) center;
-  padding-right: calc(var(--spacing-lg) + 20px);
-}
-
-/* 아이콘 버튼 */
-.neu-icon-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  background: var(--bg-primary);
-  border-radius: 50%;
-  box-shadow:
-    6px 6px 12px var(--shadow-dark),
-    -6px -6px 12px var(--shadow-light);
-  cursor: pointer;
-  transition: var(--transition);
-  border: none;
-  outline: none;
-}
-
-.neu-icon-button:hover {
-  box-shadow:
-    4px 4px 8px var(--shadow-dark),
-    -4px -4px 8px var(--shadow-light);
-}
-
-.neu-icon-button:active {
-  box-shadow:
-    inset 3px 3px 6px var(--shadow-dark),
-    inset -3px -3px 6px var(--shadow-light);
-}
-
-/* 플랫 효과 (그림자 없음) */
-.neu-flat {
-  background: var(--bg-primary);
-  border-radius: var(--border-radius);
-  box-shadow: none;
-}
-
-/* 작은 돌출 효과 */
-.neu-raised-sm {
-  background: var(--bg-primary);
-  border-radius: var(--border-radius-sm);
-  box-shadow:
-    4px 4px 8px var(--shadow-dark),
-    -4px -4px 8px var(--shadow-light);
-}
-
-/* ========================================
- * 에디토리얼 컴포넌트
- * ======================================== */
-
-/* 볼드 타이틀 스타일 */
-.editorial-title {
-  font-family: var(--font-display);
-  font-weight: var(--font-weight-black);
-  font-size: var(--font-size-display);
-  letter-spacing: var(--letter-spacing-tight);
-  color: var(--accent-red);
-  line-height: 1.1;
-}
-
-.editorial-title--dark {
-  color: var(--text-primary);
-}
-
-.editorial-title--sm {
-  font-size: var(--font-size-h1);
-}
-
-/* 서브타이틀 */
-.editorial-subtitle {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--letter-spacing-wide);
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-
-/* 액센트 라인 */
 .accent-line {
   width: 60px;
-  height: 3px;
-  background: var(--accent-red);
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(227, 36, 28, .65);
 }
-
 .accent-line--center {
   margin-left: auto;
   margin-right: auto;
-}
-
-.accent-line--long {
-  width: 100px;
-}
-
-/* ========================================
- * 실크/엘레강스 컴포넌트 (배너 스타일)
- * ======================================== */
-
-/* 실크 카드 - 부드러운 그림자 */
-.silk-card {
-  background: linear-gradient(135deg, #FFFFFF 0%, var(--bg-primary) 100%);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xl);
-  box-shadow:
-    0 10px 40px var(--shadow-silk-dark),
-    0 2px 10px var(--shadow-silk);
-  transition: var(--transition-silk);
-}
-
-.silk-card:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 20px 60px var(--shadow-silk-dark),
-    0 5px 20px var(--shadow-silk);
-}
-
-/* 메탈릭 텍스트 */
-.text-metallic {
-  background: linear-gradient(135deg, var(--accent-silver-light) 0%, var(--accent-silver) 50%, var(--accent-silver-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* 플로팅 애니메이션 (배너 주얼리 느낌) */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.floating {
-  animation: float 3s ease-in-out infinite;
-}
-
-.floating-slow {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* 실크 버튼 */
-.silk-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-md) var(--spacing-xl);
-  background: linear-gradient(135deg, #FFFFFF 0%, var(--bg-primary) 100%);
-  border-radius: var(--border-radius-full);
-  box-shadow:
-    0 4px 15px var(--shadow-silk-dark),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  color: var(--text-primary);
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--letter-spacing-wide);
-  cursor: pointer;
-  transition: var(--transition-silk);
-  border: none;
-}
-
-.silk-button:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 8px 25px var(--shadow-silk-dark),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-/* 실크 버튼 - 레드 포인트 */
-.silk-button--primary {
-  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
-  color: white;
-  box-shadow:
-    0 4px 15px rgba(227, 36, 28, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.silk-button--primary:hover {
-  box-shadow:
-    0 8px 25px rgba(227, 36, 28, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-/* 그라데이션 보더 */
-.gradient-border {
-  position: relative;
-  background: var(--bg-primary);
-  border-radius: var(--border-radius-lg);
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-silver) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-/* 글래스모피즘 (모던 터치) */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: var(--border-radius-lg);
-}
-
-/* 섹션 구분선 - 실크 느낌 */
-.divider-silk {
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--shadow-dark) 50%, transparent 100%);
-  margin: var(--spacing-xxl) 0;
 }

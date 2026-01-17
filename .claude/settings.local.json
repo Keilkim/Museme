@@ -11,7 +11,8 @@
       "Bash(git add:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: MUZ:ME jewelry rental shop\n\n- Flask backend with SQLite database\n- Neumorphism design system\n- Product catalog by themes \\(Traditional, Daily, Princess\\)\n- User authentication system\n- Responsive mobile-first layout\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(gh repo create:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nStyle update: cream background + editorial typography + silk components\n\n- Changed background from gray \\(#F2F3F7\\) to cream \\(#F5F0EB\\)\n- Added Playfair Display font for editorial headings\n- Added silver/metallic color palette\n- Added silk card, silk button components\n- Added floating animation, glass effect\n- Updated neumorphism shadows for warmer tone\n- Removed unused banner jpg files\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nStyle update: cream background + editorial typography + silk components\n\n- Changed background from gray \\(#F2F3F7\\) to cream \\(#F5F0EB\\)\n- Added Playfair Display font for editorial headings\n- Added silver/metallic color palette\n- Added silk card, silk button components\n- Added floating animation, glass effect\n- Updated neumorphism shadows for warmer tone\n- Removed unused banner jpg files\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)"
     ]
   }
 }
