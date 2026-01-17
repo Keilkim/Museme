@@ -41,7 +41,7 @@ footer, header, hgroup, menu, nav, section {
 /* Body 기본 설정 */
 body {
   line-height: 1;
-  background-color: var(--bg-primary);
+  /* background는 neumorphism.css에서 설정 */
 }
 
 /* 리스트 스타일 제거 */
