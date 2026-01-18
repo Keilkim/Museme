@@ -11,29 +11,24 @@
 }
 
 /* ========================================
-   배너 갤러리 - Silver Frame
+   배너 갤러리 - 전체 너비
    ======================================== */
 .banner-gallery {
   position: relative;
-  border-radius: var(--radius-xl);
+  border-radius: 0;
   overflow: visible;
   margin-bottom: 48px;
-  padding: 20px;
+  padding: 0;
   background: var(--bg);
-
-  /* 소프트 뉴모피즘 */
-  box-shadow: var(--shadow-out);
 }
 
 .banner-slider {
   position: relative;
   width: 100%;
   aspect-ratio: 2/1;
-  border-radius: calc(var(--radius-xl) - 8px);
+  border-radius: 0;
   overflow: hidden;
-  box-shadow:
-    0 10px 40px rgba(150, 150, 150, .2),
-    inset 0 0 0 1px rgba(255, 255, 255, .5);
+  background: var(--bg);
 }
 
 .banner-slide {
@@ -55,59 +50,50 @@
 .banner-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-/* 배너 네비게이션 - 소프트 뉴모피즘 */
-.banner-nav {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 24px;
-  border-radius: 999px;
+  object-fit: contain;
   background: var(--bg);
+}
+
+/* 배너 양옆 화살표 */
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 10;
-
-  box-shadow: var(--shadow-out-soft);
-}
-
-.banner-numbering {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-  min-width: 50px;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
-
-.prev-banner,
-.next-banner {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
   border: none;
-  background: transparent;
-  color: var(--muted);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
   cursor: pointer;
   transition: var(--transition);
   border-radius: 50%;
+  box-shadow: var(--shadow-out-soft);
 }
 
-.prev-banner:hover,
-.next-banner:hover {
+.banner-arrow:hover {
+  background: rgba(255, 255, 255, 1);
   color: var(--accent);
-  background: rgba(255, 255, 255, .5);
 }
 
-.prev-banner:active,
-.next-banner:active {
-  background: rgba(0, 0, 0, .05);
+.banner-arrow:active {
+  box-shadow: var(--shadow-pressed);
+}
+
+.banner-prev {
+  left: 20px;
+}
+
+.banner-next {
+  right: 20px;
+}
+
+/* 배너 네비게이션 - 숨김 (양옆 화살표로 대체) */
+.banner-nav {
+  display: none;
 }
 
 /* ========================================
@@ -131,6 +117,17 @@
 .section-title span {
   background: linear-gradient(180deg, transparent 60%, rgba(232, 90, 80, .1) 60%);
   padding: 0 8px;
+}
+
+/* 섹션 타이틀 이미지 (텍스트 PNG) */
+.section-title-img {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-title-img img {
+  max-width: 200px;
+  height: auto;
 }
 
 /* 섹션 구분선 */
@@ -192,17 +189,18 @@
   text-align: center;
 }
 
-/* 테마 진입 버튼 - 소프트 뉴모피즘 */
+/* 테마 진입 버튼 - 넓게 가운데 정렬 */
 .enter-theme-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: fit-content;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
-  padding: 14px 36px;
+  padding: 16px 40px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text);
   background: var(--bg);
@@ -244,8 +242,12 @@
   }
 
   .banner-gallery {
-    padding: 14px;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
+  }
+
+  .banner-arrow {
+    width: 44px;
+    height: 44px;
   }
 }
 
@@ -256,30 +258,20 @@
   }
 
   .banner-gallery {
-    padding: 12px;
-    margin-bottom: 48px;
-    border-radius: var(--radius-lg);
+    margin-bottom: 40px;
   }
 
-  .banner-slider {
-    border-radius: calc(var(--radius-lg) - 6px);
+  .banner-arrow {
+    width: 40px;
+    height: 40px;
   }
 
-  .banner-nav {
-    bottom: -16px;
-    padding: 8px 14px;
-    gap: 12px;
+  .banner-prev {
+    left: 12px;
   }
 
-  .banner-numbering {
-    font-size: 12px;
-    min-width: 40px;
-  }
-
-  .prev-banner,
-  .next-banner {
-    width: 32px;
-    height: 32px;
+  .banner-next {
+    right: 12px;
   }
 
   .category-grid {
@@ -323,18 +315,24 @@
   }
 
   .banner-gallery {
-    padding: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   .banner-slider {
     aspect-ratio: 16/9;
   }
 
-  .banner-nav {
-    bottom: -14px;
-    padding: 6px 12px;
-    gap: 10px;
+  .banner-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .banner-prev {
+    left: 8px;
+  }
+
+  .banner-next {
+    right: 8px;
   }
 
   .category-grid {

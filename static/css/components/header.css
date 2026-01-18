@@ -64,30 +64,112 @@
 
 .header-logo .logo-text {
   display: inline-block;
-  padding: 14px 36px;
-  border-radius: var(--radius-xl);
+  padding: 0;
   transition: var(--transition);
-  background: var(--bg);
+  background: transparent;
   text-decoration: none;
 
   /* 텍스트 스타일 - Pretendard Black */
   font-family: var(--font-logo);
   font-weight: 900;
-  font-size: 32px;
+  font-size: 42px;
   letter-spacing: -0.02em;
   color: var(--text);
-
-  /* 소프트 뉴모피즘 */
-  box-shadow: var(--shadow-out);
 }
 
 .header-logo .logo-text:hover {
   color: var(--accent);
-  box-shadow: var(--shadow-hover);
 }
 
-.header-logo .logo-text:active {
-  box-shadow: var(--shadow-pressed);
+/* ==========================================================================
+   Theme Button & Dropdown - 테마 변경 버튼
+   ========================================================================== */
+.theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn svg {
+  display: block;
+}
+
+.theme-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 80px;
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-out);
+  padding: 8px 0;
+  z-index: 1001;
+  min-width: 140px;
+}
+
+.theme-dropdown.active {
+  display: block;
+}
+
+.theme-option {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-option:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--accent);
+}
+
+.theme-option.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Mobile Dropdown Menu - 모바일 드롭다운
+   ========================================================================== */
+.mobile-only {
+  display: none;
+}
+
+.mobile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 16px;
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-out);
+  padding: 8px 0;
+  z-index: 1001;
+  min-width: 140px;
+}
+
+.mobile-dropdown.active {
+  display: block;
+}
+
+.mobile-dropdown a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.mobile-dropdown a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--accent);
 }
 
 /* ==========================================================================
@@ -309,8 +391,7 @@
   }
 
   .header-logo .logo-text {
-    padding: 10px 24px;
-    font-size: 26px;
+    font-size: 32px;
   }
 
   /* 데스크톱 탭 메뉴 숨김 */
@@ -318,14 +399,14 @@
     display: none;
   }
 
-  /* 모바일 햄버거 메뉴 표시 */
-  .mobile-menu-btn {
-    display: flex;
+  /* 모바일 메뉴 버튼 표시 */
+  .mobile-only {
+    display: inline-flex;
   }
 
-  /* 모바일 오버레이 표시 가능 */
-  .mobile-menu-overlay {
-    display: block;
+  /* 테마 드롭다운 위치 조정 */
+  .theme-dropdown {
+    right: 16px;
   }
 }
 
@@ -333,11 +414,11 @@
 @media screen and (max-width: 480px) {
   .header-nav {
     padding: 8px 12px;
-    gap: 8px;
+    gap: 6px;
   }
 
   .nav-btn {
-    padding: 6px 12px;
+    padding: 6px 10px;
     font-size: 11px;
   }
 
@@ -346,21 +427,15 @@
   }
 
   .header-logo .logo-text {
-    padding: 8px 20px;
-    font-size: 22px;
+    font-size: 28px;
   }
 
-  .mobile-menu-btn {
+  .mobile-dropdown {
     right: 12px;
-    width: 32px;
-    height: 24px;
-    padding: 5px;
   }
 
-  .mobile-nav-item {
-    width: 90%;
-    padding: 14px 20px;
-    font-size: 15px;
+  .theme-dropdown {
+    right: 12px;
   }
 }
 

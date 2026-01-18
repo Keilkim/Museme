@@ -2,9 +2,31 @@
 <header class="header-group">
   <!-- 헤더1: 상단 네비게이션 -->
   <nav class="header-nav">
-    <a href="/about" class="nav-btn">소개</a>
+    <button id="theme-toggle-btn" class="nav-btn theme-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+      </svg>
+    </button>
+    <a href="/about" class="nav-btn">브랜드</a>
     <button id="auth-btn" class="nav-btn">로그인</button>
+    <button id="mobile-menu-btn" class="nav-btn mobile-only">메뉴</button>
   </nav>
+
+  <!-- 테마 선택 드롭다운 -->
+  <div class="theme-dropdown" id="theme-dropdown">
+    <button class="theme-option" data-theme="default">기본 (Silver)</button>
+    <button class="theme-option" data-theme="gold">골드</button>
+    <button class="theme-option" data-theme="rosegold">로즈골드</button>
+    <button class="theme-option" data-theme="dark">다크</button>
+  </div>
+
+  <!-- 모바일 드롭다운 메뉴 -->
+  <div class="mobile-dropdown" id="mobile-dropdown">
+    <a href="/products/traditional">전통</a>
+    <a href="/products/daily">데일리</a>
+    <a href="/products/princess">공주왕자</a>
+  </div>
 
   <!-- 헤더2: 로고 (텍스트) -->
   <div class="header-logo">
@@ -15,28 +37,6 @@
   <nav class="tab-menu">
     <a href="/products/traditional" class="tab-btn" data-theme="traditional">전통</a>
     <a href="/products/daily" class="tab-btn" data-theme="daily">데일리</a>
-    <!-- <a href="/products/party" class="tab-btn" data-theme="party">파티</a> -->
     <a href="/products/princess" class="tab-btn" data-theme="princess">공주왕자</a>
-    <!-- <a href="/products/idol" class="tab-btn" data-theme="idol">아이돌</a> -->
-    <!-- <a href="/products/country" class="tab-btn" data-theme="country">국가별</a> -->
   </nav>
-
-  <!-- 모바일 햄버거 메뉴 -->
-  <button class="mobile-menu-btn" aria-label="메뉴">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <!-- 모바일 메뉴 오버레이 -->
-  <div class="mobile-menu-overlay">
-    <nav class="mobile-nav">
-      <a href="/products/traditional" class="mobile-nav-item" data-theme="traditional">전통</a>
-      <a href="/products/daily" class="mobile-nav-item" data-theme="daily">데일리</a>
-      <!-- <a href="/products/party" class="mobile-nav-item" data-theme="party">파티</a> -->
-      <a href="/products/princess" class="mobile-nav-item" data-theme="princess">공주왕자</a>
-      <!-- <a href="/products/idol" class="mobile-nav-item" data-theme="idol">아이돌</a> -->
-      <!-- <a href="/products/country" class="mobile-nav-item" data-theme="country">국가별</a> -->
-    </nav>
-  </div>
 </header>

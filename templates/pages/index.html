@@ -15,38 +15,41 @@
 <!-- 헤더 포함 -->
 {% include "components/header.html" %}
 
-<main class="main-content">
-  <!-- 배너 갤러리 -->
-  <section class="banner-gallery neu-raised">
-    <div class="banner-slider">
-      <div class="banner-slide active">
-        <img src="{{ url_for('static', filename='images/banners/banner1.png') }}" alt="배너 1">
-      </div>
-      <div class="banner-slide">
-        <img src="{{ url_for('static', filename='images/banners/banner2.png') }}" alt="배너 2">
-      </div>
-      <div class="banner-slide">
-        <img src="{{ url_for('static', filename='images/banners/banner3.png') }}" alt="배너 3">
-      </div>
+<!-- 배너 갤러리 (전체 너비) -->
+<section class="banner-gallery">
+  <div class="banner-slider">
+    <div class="banner-slide active">
+      <img src="{{ url_for('static', filename='images/banners/banner1.png') }}" alt="배너 1">
     </div>
-    <nav class="banner-nav">
-      <button class="prev-banner" aria-label="이전">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-      <span class="banner-numbering">1 / 3</span>
-      <button class="next-banner" aria-label="다음">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-    </nav>
-  </section>
+    <div class="banner-slide">
+      <img src="{{ url_for('static', filename='images/banners/banner2.png') }}" alt="배너 2">
+    </div>
+    <div class="banner-slide">
+      <img src="{{ url_for('static', filename='images/banners/banner3.png') }}" alt="배너 3">
+    </div>
+    <!-- 양옆 화살표 -->
+    <button class="banner-arrow banner-prev" aria-label="이전">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="banner-arrow banner-next" aria-label="다음">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+</section>
 
+<main class="main-content">
   <!-- 전통 테마 갤러리 -->
   <section class="theme-gallery" id="traditional-gallery">
     <h2 class="section-title">전통</h2>
+    <!-- 텍스트 PNG 삽입 위치 (파일 준비되면 활성화)
+    <div class="section-title-img">
+      <img src="{{ url_for('static', filename='images/themes/traditional-text.png') }}" alt="전통">
+    </div>
+    -->
     <div class="category-grid">
       <a href="/products/traditional?category=earring" class="category-item neu-card">
         <img src="{{ url_for('static', filename='images/themes/traditional/earring.png') }}" alt="귀걸이">
@@ -79,6 +82,11 @@
   <!-- 데일리 테마 갤러리 -->
   <section class="theme-gallery" id="daily-gallery">
     <h2 class="section-title">데일리</h2>
+    <!-- 텍스트 PNG 삽입 위치 (파일 준비되면 활성화)
+    <div class="section-title-img">
+      <img src="{{ url_for('static', filename='images/themes/daily-text.png') }}" alt="데일리">
+    </div>
+    -->
     <div class="category-grid">
       <a href="/products/daily?category=earring" class="category-item neu-card">
         <img src="{{ url_for('static', filename='images/themes/daily/earring.png') }}" alt="귀걸이">
@@ -111,6 +119,11 @@
   <!-- 공주왕자 테마 갤러리 -->
   <section class="theme-gallery" id="princess-gallery">
     <h2 class="section-title">공주왕자</h2>
+    <!-- 텍스트 PNG 삽입 위치 (파일 준비되면 활성화)
+    <div class="section-title-img">
+      <img src="{{ url_for('static', filename='images/themes/princess-text.png') }}" alt="공주왕자">
+    </div>
+    -->
     <div class="category-grid">
       <a href="/products/princess?category=earring" class="category-item neu-card">
         <img src="{{ url_for('static', filename='images/themes/princess/earring.png') }}" alt="귀걸이">

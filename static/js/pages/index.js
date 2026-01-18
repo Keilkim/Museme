@@ -15,9 +15,8 @@ class BannerSlider {
   constructor(container) {
     this.container = container;
     this.slides = container.querySelectorAll('.banner-slide');
-    this.prevBtn = container.querySelector('.prev-banner');
-    this.nextBtn = container.querySelector('.next-banner');
-    this.numbering = container.querySelector('.banner-numbering');
+    this.prevBtn = container.querySelector('.banner-prev');
+    this.nextBtn = container.querySelector('.banner-next');
     this.currentIndex = 0;
     this.autoPlayInterval = null;
     this.autoPlayDelay = 5000;
@@ -35,7 +34,6 @@ class BannerSlider {
     }
 
     this.bindEvents();
-    this.updateNumbering();
     this.autoPlay(this.autoPlayDelay);
   }
 
@@ -116,9 +114,6 @@ class BannerSlider {
 
     // 새 슬라이드 활성화
     this.slides[this.currentIndex].classList.add('active');
-
-    // 번호 업데이트
-    this.updateNumbering();
   }
 
   /**
