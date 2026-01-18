@@ -1,3 +1,8 @@
+/*
+ * MUZ:ME - Product Detail Page
+ * Neumorphism Style
+ */
+
 .product-detail-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -12,30 +17,40 @@
   margin-bottom: 60px;
 }
 
+/* 메인 이미지 - 뉴모피즘 */
 .product-main-image {
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  background: var(--bg);
+  box-shadow: var(--shadow-out);
+  padding: 16px;
 }
 
 .product-main-image img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
+  border-radius: var(--radius-md);
+  background: linear-gradient(145deg, rgba(255,255,255,.8), rgba(248,248,248,.9));
 }
 
+/* 구매 정보 - 뉴모피즘 */
 .purchase-info {
   padding: 32px;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow-out);
 }
 
 .product-name {
   font-size: 28px;
   margin-bottom: 8px;
+  color: var(--text);
 }
 
 .product-material {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: var(--muted);
   margin-bottom: 24px;
 }
 
@@ -47,19 +62,19 @@
   display: flex;
   justify-content: space-between;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .price-label {
-  color: var(--text-secondary);
+  color: var(--muted);
 }
 
 .price-value {
   font-size: 18px;
   font-weight: 700;
+  color: var(--text);
 }
 
-/* 구매/대여 토글 */
+/* 구매/대여 토글 - 뉴모피즘 */
 .purchase-type-toggle {
   display: flex;
   gap: 12px;
@@ -69,16 +84,25 @@
 .type-btn {
   flex: 1;
   padding: 14px;
-  border: 2px solid var(--bg-secondary);
-  background: transparent;
-  border-radius: var(--border-radius-sm);
+  border: none;
+  background: var(--bg);
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: var(--transition);
+  color: var(--muted);
+  font-weight: 500;
+  box-shadow: var(--shadow-out-soft);
+}
+
+.type-btn:hover {
+  color: var(--text);
+  box-shadow: var(--shadow-hover);
 }
 
 .type-btn.active {
-  border-color: var(--accent-red);
-  color: var(--accent-red);
+  color: var(--accent);
+  font-weight: 600;
+  box-shadow: var(--shadow-in);
 }
 
 /* 옵션 선택 */
@@ -90,18 +114,27 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
+  color: var(--text);
 }
 
+/* 옵션 드롭다운 - 뉴모피즘 인셋 */
 .option-dropdown {
   width: 100%;
   padding: 14px 16px;
   border: none;
-  border-radius: var(--border-radius-sm);
-  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  background: var(--bg);
   font-size: 14px;
+  color: var(--text);
+  box-shadow: var(--shadow-in);
+  transition: var(--transition);
 }
 
-/* 액션 버튼 */
+.option-dropdown:focus {
+  box-shadow: var(--shadow-in), var(--ring);
+}
+
+/* 액션 버튼 - 뉴모피즘 */
 .action-buttons {
   display: flex;
   gap: 12px;
@@ -112,15 +145,38 @@
   padding: 16px;
   font-size: 16px;
   font-weight: 600;
-}
-
-.action-buttons .primary {
-  background: var(--accent-red);
-  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
 }
 
 .action-buttons .secondary {
-  background: var(--bg-secondary);
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: var(--shadow-out-soft);
+}
+
+.action-buttons .secondary:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.action-buttons .secondary:active {
+  box-shadow: var(--shadow-pressed);
+}
+
+.action-buttons .primary {
+  background: linear-gradient(145deg, var(--accent), var(--accent-dark));
+  color: white;
+  box-shadow:
+    0 4px 15px rgba(232, 90, 80, .3),
+    inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.action-buttons .primary:hover {
+  box-shadow:
+    0 6px 20px rgba(232, 90, 80, .4),
+    inset 0 1px 0 rgba(255, 255, 255, .2);
 }
 
 /* 상품 상세 섹션 */
@@ -131,16 +187,19 @@
 .product-detail-section .main-image {
   width: 100%;
   margin-bottom: 32px;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-lg);
 }
 
+/* 상품 설명 - 뉴모피즘 */
 .product-description {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 40px;
   padding: 24px;
-  background: var(--bg-secondary);
-  border-radius: var(--border-radius);
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  color: var(--text);
+  box-shadow: var(--shadow-out-soft);
 }
 
 .detail-image-group,
@@ -154,24 +213,27 @@
   width: 100%;
   aspect-ratio: 3/4;
   object-fit: cover;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--radius-md);
 }
 
-/* 구매 전 확인 사항 */
+/* 구매 전 확인 사항 - 뉴모피즘 */
 .purchase-notice {
   padding: 32px;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow-out);
 }
 
 .purchase-notice h3 {
   font-size: 20px;
   margin-bottom: 24px;
+  color: var(--text);
 }
 
 .purchase-notice h4 {
   font-size: 16px;
   margin: 20px 0 12px;
-  color: var(--accent-red);
+  color: var(--accent);
 }
 
 .purchase-notice ul {
@@ -181,12 +243,32 @@
 .purchase-notice li {
   font-size: 14px;
   line-height: 1.8;
-  color: var(--text-secondary);
+  color: var(--muted);
 }
 
 /* 반응형 */
 @media (max-width: 767px) {
   .product-info-section {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .product-main-image {
+    padding: 12px;
+    border-radius: var(--radius-md);
+  }
+
+  .purchase-info {
+    padding: 24px;
+    border-radius: var(--radius-md);
+  }
+
+  .product-name {
+    font-size: 22px;
+  }
+
+  .purchase-notice {
+    padding: 24px;
+    border-radius: var(--radius-md);
   }
 }

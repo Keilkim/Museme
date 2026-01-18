@@ -1,3 +1,8 @@
+/*
+ * MUZ:ME - Legal Pages (Terms, Privacy)
+ * Neumorphism Style
+ */
+
 .legal-page {
   min-height: 100vh;
   padding: 40px 20px;
@@ -12,17 +17,21 @@
   font-size: 28px;
   text-align: center;
   margin-bottom: 32px;
+  color: var(--text);
 }
 
+/* 법적 콘텐츠 - 뉴모피즘 */
 .legal-content {
   padding: 40px;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow-out);
 }
 
 .legal-content h2 {
   font-size: 18px;
   margin: 24px 0 12px;
-  color: var(--accent-red);
+  color: var(--accent);
 }
 
 .legal-content h2:first-child {
@@ -32,5 +41,30 @@
 .legal-content p {
   font-size: 14px;
   line-height: 1.8;
-  color: var(--text-secondary);
+  color: var(--muted);
+}
+
+/* 반응형 */
+@media (max-width: 767px) {
+  .legal-page {
+    padding: 24px 16px;
+  }
+
+  .legal-page h1 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .legal-content {
+    padding: 24px;
+    border-radius: var(--radius-md);
+  }
+
+  .legal-content h2 {
+    font-size: 16px;
+  }
+
+  .legal-content p {
+    font-size: 13px;
+  }
 }

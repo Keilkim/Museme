@@ -1,13 +1,20 @@
+/*
+ * MUZ:ME - Products Page
+ * Neumorphism Style
+ */
+
 .products-page {
   min-height: 100vh;
 }
 
-/* 카테고리 히어로 이미지 */
+/* 카테고리 히어로 이미지 - 라운드 없음 */
 .category-hero {
   position: relative;
   width: 100%;
   aspect-ratio: 4/1;
   overflow: hidden;
+  background: var(--bg);
+  margin-bottom: 40px;
 }
 
 .category-hero img {
@@ -36,20 +43,23 @@
   padding: 0 20px;
 }
 
-/* 필터링 사이드바 */
+/* 필터링 사이드바 - 뉴모피즘 */
 .filter-sidebar {
   position: sticky;
   top: 20px;
   height: fit-content;
   padding: 24px;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow-out-soft);
 }
 
 .theme-name {
   font-size: 20px;
+  font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  color: var(--text);
 }
 
 .filter-list {
@@ -62,24 +72,31 @@
   margin-bottom: 8px;
 }
 
+/* 필터 버튼 - 뉴모피즘 */
 .filter-btn {
   width: 100%;
   padding: 12px 16px;
   text-align: left;
-  background: transparent;
+  background: var(--bg);
   border: none;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: var(--transition);
+  color: var(--muted);
+  font-weight: 500;
+  box-shadow: var(--shadow-out-soft);
 }
 
 .filter-btn:hover {
-  background: rgba(0,0,0,0.05);
+  color: var(--text);
+  box-shadow: var(--shadow-hover);
 }
 
 .filter-btn.active {
-  background: var(--accent-red);
-  color: var(--text-white);
+  background: var(--bg);
+  color: var(--accent);
+  font-weight: 600;
+  box-shadow: var(--shadow-in);
 }
 
 /* 제품 갤러리 */
@@ -89,7 +106,7 @@
 
 .product-count {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: var(--muted);
 }
 
 .product-grid {
@@ -98,24 +115,31 @@
   gap: 24px;
 }
 
-/* 제품 유닛 카드 */
+/* 제품 유닛 카드 - 뉴모피즘 */
 .product-unit {
   display: block;
   text-decoration: none;
   color: inherit;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   transition: var(--transition);
+  background: var(--bg);
+  box-shadow: var(--shadow-out-soft);
 }
 
 .product-unit:hover {
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.product-unit:active {
+  box-shadow: var(--shadow-pressed);
 }
 
 .product-thumbnail {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
+  background: linear-gradient(145deg, rgba(255,255,255,.5), rgba(200,208,231,.3));
 }
 
 .product-info {
@@ -129,18 +153,19 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--text);
 }
 
 .product-code {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--muted);
   margin-bottom: 8px;
 }
 
 .product-price {
   font-size: 16px;
   font-weight: 700;
-  color: var(--accent-red);
+  color: var(--accent);
 }
 
 /* 반응형 */
@@ -154,25 +179,45 @@
 }
 
 @media (max-width: 767px) {
+  .category-hero {
+    aspect-ratio: 2/1;
+    margin-bottom: 24px;
+  }
+
+  .category-title {
+    font-size: 24px;
+    bottom: 24px;
+  }
+
   .products-container {
     grid-template-columns: 1fr;
+    margin: 24px auto;
+    gap: 24px;
   }
+
   .filter-sidebar {
     position: static;
+    padding: 20px;
   }
+
   .filter-list {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
   }
+
   .filter-list li {
     margin: 0;
   }
+
   .filter-btn {
     width: auto;
-    padding: 8px 16px;
+    padding: 10px 16px;
+    font-size: 13px;
   }
+
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }

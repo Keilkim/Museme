@@ -1,0 +1,93 @@
+/*
+ * MUZ:ME Shopping Mall - Custom Fonts
+ * Pretendard (Logo) + ELAND Choice (Body)
+ */
+
+/* =========================
+   Pretendard - 로고용
+========================= */
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/Pretendard-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/Pretendard-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/Pretendard-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/Pretendard-Regular.woff2') format('woff2');
+}
+
+/* =========================
+   ELAND Choice - 본문용
+========================= */
+@font-face {
+  font-family: 'ELAND Choice';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/ElandChoiceB.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ELAND Choice';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/ElandChoiceM.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ELAND Choice';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/ElandChoiceL.ttf') format('truetype');
+}
+
+/* =========================
+   Font Utility Classes
+========================= */
+.font-logo {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 900;
+}
+
+.font-body {
+  font-family: 'ELAND Choice', sans-serif;
+}
+
+.font-body-bold {
+  font-family: 'ELAND Choice', sans-serif;
+  font-weight: 700;
+}
+
+.font-body-medium {
+  font-family: 'ELAND Choice', sans-serif;
+  font-weight: 500;
+}
+
+.font-body-light {
+  font-family: 'ELAND Choice', sans-serif;
+  font-weight: 300;
+}

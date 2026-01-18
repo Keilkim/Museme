@@ -1,6 +1,5 @@
 /*
- * MUZ:ME Shopping Mall - Neumorphism Styles
- * Museme — Banner airy + Neumorphism
+ * MUZ:ME Shopping Mall - Neumorphism + Silver Gradient Styles
  */
 
 * { box-sizing: border-box; }
@@ -9,12 +8,11 @@ body {
   margin: 0;
   font-family: var(--font);
   color: var(--text);
+  min-height: 100vh;
 
-  /* 배너 공기감 + 주홍색이 살짝 스미는 배경 */
-  background:
-    radial-gradient(900px 600px at 18% 0%, rgba(227, 36, 28, .055), transparent 60%),
-    radial-gradient(900px 600px at 85% 22%, rgba(227, 36, 28, .040), transparent 55%),
-    linear-gradient(180deg, var(--bg) 0%, #F2ECE6 100%);
+  /* 뉴모피즘 배경 */
+  background: #E4EBF5;
+  background-attachment: fixed;
 }
 
 /* 기본 링크/포커스 */
@@ -25,28 +23,47 @@ a { color: inherit; text-decoration: none; }
    Layout helpers
 ========================= */
 .container {
-  width: min(1120px, calc(100% - 48px));
+  width: min(var(--container-max-width), calc(100% - 48px));
   margin: 0 auto;
 }
-.section { padding: 28px 0; }
+.section { padding: 32px 0; }
 
 /* =========================
-   Neumorphism primitives
+   Silver Neumorphism Surface
 ========================= */
 .nm-surface {
-  background: linear-gradient(145deg, var(--surface-hi), var(--surface-lo));
+  background: var(--silver-metallic);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-out);
-  border: 1px solid rgba(255, 255, 255, .55);
+  backdrop-filter: blur(10px);
 }
+
 .nm-surface-soft {
   background: linear-gradient(145deg, var(--surface-hi), var(--surface));
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-out-soft);
-  border: 1px solid rgba(255, 255, 255, .55);
 }
-.nm-press { box-shadow: var(--shadow-in); }
+
+.nm-press {
+  box-shadow: var(--shadow-in);
+  background: linear-gradient(145deg, var(--surface), var(--surface-hi));
+}
+
 .nm-round { border-radius: var(--radius-xl); }
+
+/* =========================
+   Silver Glass Effect
+========================= */
+.glass-silver {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, .9) 0%,
+    rgba(240, 240, 240, .8) 50%,
+    rgba(255, 255, 255, .85) 100%);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(150, 150, 150, .15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
 
 /* =========================
    Buttons
@@ -57,85 +74,141 @@ button, .btn {
   border: 0;
   cursor: pointer;
 }
-.btn, .nm-btn {
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
-  box-shadow: var(--shadow-out-soft);
-  border: 1px solid rgba(255, 255, 255, .55);
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
-}
-.btn:hover, .nm-btn:hover { transform: translateY(-1px); filter: brightness(1.02); }
-.btn:active, .nm-btn:active { transform: translateY(0px); box-shadow: var(--shadow-in); }
 
-.btn-accent, .nm-btn-accent {
-  position: relative;
+.btn, .nm-btn {
+  padding: 12px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--silver-metallic);
+  box-shadow: var(--shadow-out-soft);
+  transition: var(--transition);
+  font-weight: 500;
 }
-.btn-accent::after, .nm-btn-accent::after {
-  content: "";
-  position: absolute; inset: -1px;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow: 0 0 0 1px rgba(227, 36, 28, .22);
+
+.btn:hover, .nm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-silver-hover);
+}
+
+.btn:active, .nm-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-in);
+}
+
+/* Primary Button - 레드 액센트 */
+.btn-primary, .nm-btn-primary {
+  background: linear-gradient(145deg, var(--accent), var(--accent-dark));
+  color: white;
+  font-weight: 600;
+  border: none;
+  box-shadow:
+    0 4px 15px rgba(232, 90, 80, .3),
+    inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.btn-primary:hover, .nm-btn-primary:hover {
+  box-shadow:
+    0 6px 20px rgba(232, 90, 80, .4),
+    inset 0 1px 0 rgba(255, 255, 255, .2);
 }
 
 /* =========================
-   Tabs (전통/데일리/공주왕자)
+   Tabs (실버 스타일)
 ========================= */
 .tabs, .nm-tabs {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  border-radius: 999px;
-  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  padding: 10px 14px;
+  border-radius: var(--radius-xl);
+  background: var(--silver-metallic);
   box-shadow: var(--shadow-out-soft);
-  border: 1px solid rgba(255, 255, 255, .55);
 }
+
 .tabs button, .nm-tabs .tab {
-  padding: 10px 16px;
-  border-radius: 999px;
+  padding: 10px 18px;
+  border-radius: var(--radius-lg);
   background: transparent;
   box-shadow: none;
   color: var(--muted);
-  transition: color .12s ease, box-shadow .12s ease, background .12s ease;
+  font-weight: 500;
+  transition: var(--transition);
 }
+
 .tabs button:hover, .nm-tabs .tab:hover {
   color: var(--text);
-  background: rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, .6);
 }
+
 .tabs button.active, .nm-tabs .tab.is-active {
   color: var(--text);
-  background: linear-gradient(145deg, var(--surface), var(--surface-hi));
+  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
   box-shadow: var(--shadow-in);
+  font-weight: 600;
   position: relative;
 }
+
 .tabs button.active::after, .nm-tabs .tab.is-active::after {
   content: "";
   position: absolute;
-  left: 16px; right: 16px; bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 8px;
+  width: 20px;
   height: 2px;
   border-radius: 2px;
-  background: rgba(227, 36, 28, .65); /* 주홍색 포인트 */
+  background: var(--accent);
 }
 
 /* =========================
-   Banner / Carousel wrapper
+   Cards - Silver Neumorphism
+========================= */
+.card, .product-card, .neu-card {
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  background: var(--silver-metallic);
+  box-shadow: var(--shadow-out-soft);
+  transition: var(--transition);
+}
+
+.card:hover, .product-card:hover, .neu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-silver-hover);
+}
+
+.card:active, .product-card:active, .neu-card:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-in);
+}
+
+.card .thumb, .product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--radius-md);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .8), rgba(245, 245, 245, .9));
+}
+
+/* =========================
+   Banner / Carousel (실버 프레임)
 ========================= */
 .banner-wrap, .carousel-wrap {
-  padding: 18px;
+  padding: 16px;
   border-radius: var(--radius-xl);
-  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  background: var(--silver-metallic);
   box-shadow: var(--shadow-out);
-  border: 1px solid rgba(255, 255, 255, .55);
 }
+
 .banner, .carousel {
   overflow: hidden;
   border-radius: calc(var(--radius-xl) - 8px);
-  box-shadow: 0 18px 40px rgba(17, 17, 17, .10);
+  box-shadow:
+    0 10px 40px rgba(150, 150, 150, .2),
+    inset 0 0 0 1px rgba(255, 255, 255, .5);
   background: #fff;
 }
+
 .banner img, .carousel img {
   width: 100%;
   height: auto;
@@ -146,108 +219,70 @@ button, .btn {
 .carousel-controls {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
   align-items: center;
-  margin-top: 14px;
+  margin-top: 16px;
   color: var(--muted);
 }
+
 .carousel-arrow {
-  width: 40px; height: 40px;
-  border-radius: 999px;
-  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--silver-metallic);
   box-shadow: var(--shadow-out-soft);
-  border: 1px solid rgba(255, 255, 255, .55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
 }
-.carousel-arrow:hover { transform: translateY(-1px); }
-.carousel-arrow:active { box-shadow: var(--shadow-in); transform: translateY(0); }
-.carousel-index {
-  font-weight: 600;
-  letter-spacing: .02em;
+
+.carousel-arrow:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-silver-hover);
 }
-.carousel-index b {
-  color: var(--text);
-}
-.carousel-index b::after {
-  content: "";
-  display: inline-block;
-  width: 6px; height: 6px;
-  margin-left: 8px;
-  border-radius: 999px;
-  background: rgba(227, 36, 28, .55); /* 주홍 포인트 */
-  vertical-align: middle;
+
+.carousel-arrow:active {
+  box-shadow: var(--shadow-in);
+  transform: translateY(0);
 }
 
 /* =========================
-   Title
-========================= */
-.page-title, h1.title, h2.section-title {
-  margin: 18px 0 10px;
-  text-align: center;
-  font-size: clamp(20px, 2.2vw, 28px);
-  letter-spacing: .02em;
-}
-.page-title span, h1.title span, h2.section-title span {
-  box-shadow: inset 0 -10px 0 rgba(227, 36, 28, .08); /* 은은한 주홍 하이라이트 */
-}
-
-/* =========================
-   Product grid/cards
+   Grid
 ========================= */
 .grid, .product-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+  gap: 20px;
 }
+
 @media (max-width: 1100px) {
   .grid, .product-grid { grid-template-columns: repeat(3, 1fr); }
 }
+
 @media (max-width: 640px) {
-  .container { width: calc(100% - 28px); }
-  .grid, .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-}
-
-.card, .product-card {
-  padding: 14px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
-  box-shadow: var(--shadow-out-soft);
-  border: 1px solid rgba(255, 255, 255, .55);
-  transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
-}
-.card:hover, .product-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 16px 16px 34px rgba(17, 17, 17, .10),
-              -16px -16px 34px rgba(255, 255, 255, .88);
-}
-.card:active, .product-card:active {
-  transform: translateY(0);
-  box-shadow: var(--shadow-in);
-}
-.card .thumb, .product-card img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  display: block;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, .38);
-}
-
-/* 카드에 주홍 포인트 */
-.card.accent, .product-card.accent {
-  position: relative;
-}
-.card.accent::before, .product-card.accent::before {
-  content: "";
-  position: absolute;
-  left: 14px; right: 14px; top: 12px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, transparent, rgba(227, 36, 28, .55), transparent);
-  opacity: .9;
+  .container { width: calc(100% - 32px); }
+  .grid, .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 }
 
 /* =========================
-   Inputs
+   Titles
+========================= */
+.page-title, h1.title, h2.section-title {
+  margin: 24px 0 16px;
+  text-align: center;
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.page-title span, h1.title span, h2.section-title span {
+  background: linear-gradient(180deg, transparent 60%, rgba(232, 90, 80, .12) 60%);
+}
+
+/* =========================
+   Inputs - Silver Style
 ========================= */
 input, select, textarea {
   font: inherit;
@@ -255,107 +290,131 @@ input, select, textarea {
   outline: none;
   color: var(--text);
 }
-.nm-input, input.nm-input {
+
+.nm-input, input.nm-input, .neu-input {
   width: 100%;
-  padding: 12px 14px;
-  border-radius: 999px;
+  padding: 14px 18px;
+  border-radius: var(--radius-lg);
   background: linear-gradient(145deg, var(--surface), var(--surface-hi));
   box-shadow: var(--shadow-in);
-  border: 1px solid rgba(255, 255, 255, .55);
-}
-.nm-input::placeholder { color: rgba(111, 106, 100, .75); }
-
-/* =========================
-   Utility
-========================= */
-.top-actions {
-  position: fixed;
-  top: 16px; right: 18px;
-  display: flex; gap: 10px;
-}
-.muted { color: var(--muted); }
-
-/* =========================
-   Legacy support (기존 클래스 호환)
-========================= */
-.neu-raised {
-  background: linear-gradient(145deg, var(--surface-hi), var(--surface-lo));
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-out);
-  border: 1px solid rgba(255, 255, 255, .55);
   transition: var(--transition);
 }
+
+.nm-input:focus, input.nm-input:focus, .neu-input:focus {
+  box-shadow: var(--shadow-in), var(--ring);
+}
+
+.nm-input::placeholder, .neu-input::placeholder {
+  color: var(--muted);
+}
+
+/* =========================
+   Legacy Support Classes
+========================= */
+.neu-raised {
+  background: var(--silver-metallic);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-out);
+  transition: var(--transition);
+}
+
 .neu-raised:hover {
-  transform: translateY(-2px);
-  box-shadow: 16px 16px 34px rgba(17, 17, 17, .10),
-              -16px -16px 34px rgba(255, 255, 255, .88);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-silver-hover);
 }
 
 .neu-inset {
   background: linear-gradient(145deg, var(--surface), var(--surface-hi));
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-in);
-  border: 1px solid rgba(255, 255, 255, .55);
 }
 
 .neu-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
+  padding: 12px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--silver-metallic);
   box-shadow: var(--shadow-out-soft);
-  border: 1px solid rgba(255, 255, 255, .55);
   color: var(--text);
   font-family: var(--font);
+  font-weight: 500;
   cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease;
+  transition: var(--transition);
 }
-.neu-button:hover { transform: translateY(-1px); }
-.neu-button:active { box-shadow: var(--shadow-in); transform: translateY(0); }
+
+.neu-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-silver-hover);
+}
+
+.neu-button:active {
+  box-shadow: var(--shadow-in);
+  transform: translateY(0);
+}
 
 .neu-button--primary {
-  background: var(--accent);
+  background: linear-gradient(145deg, var(--accent), var(--accent-dark));
   color: white;
   font-weight: 600;
-  box-shadow: var(--shadow-out-soft);
+  box-shadow:
+    0 4px 15px rgba(232, 90, 80, .3),
+    inset 0 1px 0 rgba(255, 255, 255, .2);
+  border: none;
 }
+
 .neu-button--primary:hover {
-  background: var(--accent-dark);
+  background: linear-gradient(145deg, var(--accent-dark), var(--accent));
+  box-shadow:
+    0 6px 20px rgba(232, 90, 80, .4),
+    inset 0 1px 0 rgba(255, 255, 255, .2);
 }
 
-.neu-card {
-  padding: 14px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(145deg, var(--surface-hi), var(--surface));
-  box-shadow: var(--shadow-out-soft);
-  border: 1px solid rgba(255, 255, 255, .55);
-  transition: transform .14s ease, box-shadow .14s ease;
-}
-.neu-card:hover {
-  transform: translateY(-2px);
-}
-
-.neu-input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 999px;
-  background: linear-gradient(145deg, var(--surface), var(--surface-hi));
-  box-shadow: var(--shadow-in);
-  border: 1px solid rgba(255, 255, 255, .55);
-  font-family: var(--font);
-  color: var(--text);
-}
-.neu-input::placeholder { color: var(--muted); }
-
+/* =========================
+   Accent Elements
+========================= */
 .accent-line {
   width: 60px;
   height: 2px;
   border-radius: 2px;
-  background: rgba(227, 36, 28, .65);
+  background: var(--accent);
 }
+
 .accent-line--center {
   margin-left: auto;
   margin-right: auto;
 }
+
+.accent-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* =========================
+   Silver Shine Animation
+========================= */
+@keyframes silverShine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.silver-shine {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, .8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: silverShine 3s ease-in-out infinite;
+}
+
+/* =========================
+   Utility
+========================= */
+.muted { color: var(--muted); }
+.text-accent { color: var(--accent); }
+.font-display { font-family: var(--font-display); }
