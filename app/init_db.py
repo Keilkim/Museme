@@ -49,17 +49,74 @@ def init_db():
     # 샘플 데이터 추가
     cursor.execute("SELECT COUNT(*) FROM products")
     if cursor.fetchone()[0] == 0:
+        # (name, code, material, buy_price, rent_price, theme, category, thumbnail, detail_image, wear_image, description)
         sample_products = [
-            ('전통 귀걸이 세트', 'TRAD-EAR-001', '실버 925', 150000, 30000, 'traditional', 'earring', '/static/images/products/traditional/earring/A1.png', '전통적인 한국 문양이 새겨진 귀걸이입니다.'),
-            ('전통 뒤꽂이', 'TRAD-HAIR-001', '실버 925, 진주', 250000, 50000, 'traditional', 'hairpin', '/static/images/products/traditional/hairpin/A2.png', '고급스러운 전통 뒤꽂이입니다.'),
-            ('데일리 반지', 'DAILY-RING-001', '스테인리스', 50000, 10000, 'daily', 'ring', '/static/images/products/daily/ring/B2.png', '일상에서 편하게 착용할 수 있는 반지입니다.'),
+            ('전통 귀걸이 세트', 'TRAD-EAR-001', '실버 925', 150000, 30000, 'traditional', 'earring',
+             '/static/images/products/traditional/earring/A1.png',
+             '/static/images/products/traditional/earring/A1-detail.png',
+             '/static/images/products/traditional/earring/A1-wear.png',
+             '전통적인 한국 문양이 새겨진 귀걸이입니다.'),
+            ('전통 뒤꽂이', 'TRAD-HAIR-001', '실버 925, 진주', 250000, 50000, 'traditional', 'hairpin',
+             '/static/images/products/traditional/hairpin/A2.png',
+             '/static/images/products/traditional/hairpin/A2-detail.png',
+             '/static/images/products/traditional/hairpin/A2-wear.png',
+             '고급스러운 전통 뒤꽂이입니다.'),
+            ('전통 떨잠', 'TRAD-HAIR-002', '실버 925, 비취', 280000, 55000, 'traditional', 'hairpin',
+             '/static/images/products/traditional/hairpin/A3.png',
+             '/static/images/products/traditional/hairpin/A3-detail.png',
+             '/static/images/products/traditional/hairpin/A3-wear.png',
+             '전통 떨잠 장식입니다.'),
+            ('데일리 목걸이', 'DAILY-NECK-001', '스테인리스', 45000, 9000, 'daily', 'necklace',
+             '/static/images/products/daily/necklace/B1.png',
+             '/static/images/products/daily/necklace/B1-detail.png',
+             '/static/images/products/daily/necklace/B1-wear.png',
+             '일상에서 편하게 착용할 수 있는 목걸이입니다.'),
+            ('데일리 반지', 'DAILY-RING-001', '스테인리스', 50000, 10000, 'daily', 'ring',
+             '/static/images/products/daily/ring/B2.png',
+             '/static/images/products/daily/ring/B2-detail.png',
+             '/static/images/products/daily/ring/B2-wear.png',
+             '일상에서 편하게 착용할 수 있는 반지입니다.'),
+            ('데일리 팔찌', 'DAILY-BRAC-001', '스테인리스', 40000, 8000, 'daily', 'bracelet',
+             '/static/images/products/daily/bracelet/B3.png',
+             '/static/images/products/daily/bracelet/B3-detail.png',
+             '/static/images/products/daily/bracelet/B3-wear.png',
+             '일상에서 편하게 착용할 수 있는 팔찌입니다.'),
+            ('프린세스 귀걸이', 'PRIN-EAR-001', '실버 925, 큐빅', 180000, 36000, 'princess', 'earring',
+             '/static/images/products/princess/earring/C1.png',
+             '/static/images/products/princess/earring/C1-detail.png',
+             '/static/images/products/princess/earring/C1-wear.png',
+             '화려한 프린세스 스타일 귀걸이입니다.'),
+            ('프린세스 목걸이', 'PRIN-NECK-001', '실버 925, 크리스탈', 220000, 44000, 'princess', 'necklace',
+             '/static/images/products/princess/necklace/C2.png',
+             '/static/images/products/princess/necklace/C2-detail.png',
+             '/static/images/products/princess/necklace/C2-wear.png',
+             '우아한 프린세스 스타일 목걸이입니다.'),
+            ('프린세스 목걸이2', 'PRIN-NECK-002', '실버 925, 진주', 200000, 40000, 'princess', 'necklace',
+             '/static/images/products/princess/necklace/C3.png',
+             '/static/images/products/princess/necklace/C3-detail.png',
+             '/static/images/products/princess/necklace/C3-wear.png',
+             '로맨틱한 프린세스 스타일 목걸이입니다.'),
         ]
 
-        for name, code, material, buy_price, rent_price, theme, category, thumbnail, description in sample_products:
+        for name, code, material, buy_price, rent_price, theme, category, thumbnail, detail_img, wear_img, description in sample_products:
             cursor.execute('''
                 INSERT INTO products (name, code, material, buy_price, rent_price, theme, category, thumbnail, description)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             ''', (name, code, material, buy_price, rent_price, theme, category, thumbnail, description))
+
+            product_id = cursor.lastrowid
+
+            # 상세 이미지 추가
+            cursor.execute('''
+                INSERT INTO product_images (product_id, image_url, image_type)
+                VALUES (?, ?, ?)
+            ''', (product_id, detail_img, 'detail'))
+
+            # 착용샷 추가
+            cursor.execute('''
+                INSERT INTO product_images (product_id, image_url, image_type)
+                VALUES (?, ?, ?)
+            ''', (product_id, wear_img, 'wear'))
 
     conn.commit()
     conn.close()
