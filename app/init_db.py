@@ -50,9 +50,9 @@ def init_db():
     cursor.execute("SELECT COUNT(*) FROM products")
     if cursor.fetchone()[0] == 0:
         sample_products = [
-            ('전통 귀걸이 세트', 'TRAD-EAR-001', '실버 925', 150000, 30000, 'traditional', 'earring', '/static/images/products/sample1.jpg', '전통적인 한국 문양이 새겨진 귀걸이입니다.'),
-            ('전통 목걸이', 'TRAD-NECK-001', '실버 925, 진주', 250000, 50000, 'traditional', 'necklace', '/static/images/products/sample2.jpg', '고급스러운 전통 목걸이입니다.'),
-            ('데일리 반지', 'DAILY-RING-001', '스테인리스', 50000, 10000, 'daily', 'ring', '/static/images/products/sample3.jpg', '일상에서 편하게 착용할 수 있는 반지입니다.'),
+            ('전통 귀걸이 세트', 'TRAD-EAR-001', '실버 925', 150000, 30000, 'traditional', 'earring', '/static/images/products/traditional/earring/A1.png', '전통적인 한국 문양이 새겨진 귀걸이입니다.'),
+            ('전통 뒤꽂이', 'TRAD-HAIR-001', '실버 925, 진주', 250000, 50000, 'traditional', 'hairpin', '/static/images/products/traditional/hairpin/A2.png', '고급스러운 전통 뒤꽂이입니다.'),
+            ('데일리 반지', 'DAILY-RING-001', '스테인리스', 50000, 10000, 'daily', 'ring', '/static/images/products/daily/ring/B2.png', '일상에서 편하게 착용할 수 있는 반지입니다.'),
         ]
 
         for name, code, material, buy_price, rent_price, theme, category, thumbnail, description in sample_products:

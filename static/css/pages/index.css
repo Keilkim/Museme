@@ -283,12 +283,12 @@
   }
 
   .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
   .category-item {
-    padding: 14px;
+    padding: 10px;
     border-radius: var(--radius-md);
   }
 

@@ -4,9 +4,12 @@ from auth_routes import auth_bp
 import os
 
 def create_app():
+    # 프로젝트 루트 경로 계산
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
     app = Flask(__name__,
-                template_folder='../templates',
-                static_folder='../static')
+                template_folder=os.path.join(base_dir, 'templates'),
+                static_folder=os.path.join(base_dir, 'static'))
 
     app.secret_key = 'your-secret-key-change-in-production'
 
@@ -24,4 +27,4 @@ if __name__ == '__main__':
     init_db()
 
     app = create_app()
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5001)
