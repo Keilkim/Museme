@@ -4,7 +4,17 @@
  */
 
 :root {
-  /* base palette (뉴모피즘 - 밝은 그레이) */
+  /* ===== RGB 값 (alpha 조합용) ===== */
+  --bg-rgb: 228, 235, 245;
+  --text-rgb: 30, 30, 30;
+  --muted-rgb: 107, 107, 107;
+  --accent-rgb: 232, 90, 80;
+  --white-rgb: 255, 255, 255;
+  --black-rgb: 0, 0, 0;
+  --shadow-dark-rgb: 163, 177, 198;
+  --shadow-light-rgb: 255, 255, 255;
+
+  /* ===== base palette (뉴모피즘 - 밝은 그레이) ===== */
   --bg: #E4EBF5;
   --surface: #E4EBF5;
   --surface-hi: #FFFFFF;
@@ -18,12 +28,18 @@
   --accent: #E85A50;
   --accent-dark: #D64A40;
 
+  /* ===== 기능별 색상 ===== */
+  --overlay: rgba(0, 0, 0, 0.4);
+  --hover-bg: rgba(var(--black-rgb), 0.05);
+  --success: #4caf50;
+  --success-rgb: 76, 175, 80;
+
   /* 실버/메탈릭 그라데이션 */
   --silver-light: #F5F5F5;
   --silver-mid: #E8E8E8;
   --silver-dark: #D4D4D4;
-  --silver-shine: linear-gradient(135deg, #FAFAFA 0%, #E8E8E8 50%, #F2F2F2 100%);
-  --silver-metallic: linear-gradient(145deg, #FFFFFF 0%, #E0E0E0 50%, #F8F8F8 100%);
+  --silver-shine: linear-gradient(135deg, rgba(var(--white-rgb), 1) 0%, rgba(var(--white-rgb), 0.9) 50%, rgba(var(--white-rgb), 0.95) 100%);
+  --silver-metallic: linear-gradient(145deg, rgba(var(--white-rgb), 1) 0%, rgba(var(--white-rgb), 0.88) 50%, rgba(var(--white-rgb), 0.97) 100%);
 
   /* border radius */
   --radius-xl: 28px;
@@ -32,20 +48,20 @@
   --radius-sm: 10px;
 
   /* neumorphism shadows - 엠보싱 볼륨감 강화 */
-  --shadow-out: 10px 10px 20px rgba(163, 177, 198, .6),
-                -10px -10px 20px rgba(255, 255, 255, 1);
-  --shadow-out-soft: 6px 6px 14px rgba(163, 177, 198, .5),
-                     -6px -6px 14px rgba(255, 255, 255, 1);
-  --shadow-in: inset 5px 5px 10px rgba(163, 177, 198, .5),
-               inset -5px -5px 10px rgba(255, 255, 255, .85);
+  --shadow-out: 10px 10px 20px rgba(var(--shadow-dark-rgb), .6),
+                -10px -10px 20px rgba(var(--shadow-light-rgb), 1);
+  --shadow-out-soft: 6px 6px 14px rgba(var(--shadow-dark-rgb), .5),
+                     -6px -6px 14px rgba(var(--shadow-light-rgb), 1);
+  --shadow-in: inset 5px 5px 10px rgba(var(--shadow-dark-rgb), .5),
+               inset -5px -5px 10px rgba(var(--shadow-light-rgb), .85);
 
   /* 호버용 쉐도우 - 더 깊은 볼륨 */
-  --shadow-hover: 14px 14px 28px rgba(163, 177, 198, .65),
-                  -14px -14px 28px rgba(255, 255, 255, 1);
-  --shadow-pressed: inset 7px 7px 14px rgba(163, 177, 198, .55),
-                    inset -7px -7px 14px rgba(255, 255, 255, .8);
+  --shadow-hover: 14px 14px 28px rgba(var(--shadow-dark-rgb), .65),
+                  -14px -14px 28px rgba(var(--shadow-light-rgb), 1);
+  --shadow-pressed: inset 7px 7px 14px rgba(var(--shadow-dark-rgb), .55),
+                    inset -7px -7px 14px rgba(var(--shadow-light-rgb), .8);
 
-  --ring: 0 0 0 3px rgba(232, 90, 80, .22);
+  --ring: 0 0 0 3px rgba(var(--accent-rgb), .22);
 
   /* font */
   --font: 'ELAND Choice', 'Noto Sans KR', ui-sans-serif, system-ui, sans-serif;

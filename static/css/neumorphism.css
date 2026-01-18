@@ -11,7 +11,7 @@ body {
   min-height: 100vh;
 
   /* 뉴모피즘 배경 */
-  background: #E4EBF5;
+  background: var(--bg);
   background-attachment: fixed;
 }
 
@@ -56,13 +56,13 @@ a { color: inherit; text-decoration: none; }
 ========================= */
 .glass-silver {
   background: linear-gradient(135deg,
-    rgba(255, 255, 255, .9) 0%,
-    rgba(240, 240, 240, .8) 50%,
-    rgba(255, 255, 255, .85) 100%);
+    rgba(var(--white-rgb), .9) 0%,
+    rgba(var(--white-rgb), .8) 50%,
+    rgba(var(--white-rgb), .85) 100%);
   backdrop-filter: blur(20px);
   box-shadow:
-    0 8px 32px rgba(150, 150, 150, .15),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+    0 8px 32px rgba(var(--muted-rgb), .15),
+    inset 0 1px 0 rgba(var(--white-rgb), 1);
 }
 
 /* =========================
@@ -97,18 +97,18 @@ button, .btn {
 /* Primary Button - 레드 액센트 */
 .btn-primary, .nm-btn-primary {
   background: linear-gradient(145deg, var(--accent), var(--accent-dark));
-  color: white;
+  color: rgba(var(--white-rgb), 1);
   font-weight: 600;
   border: none;
   box-shadow:
-    0 4px 15px rgba(232, 90, 80, .3),
-    inset 0 1px 0 rgba(255, 255, 255, .2);
+    0 4px 15px rgba(var(--accent-rgb), .3),
+    inset 0 1px 0 rgba(var(--white-rgb), .2);
 }
 
 .btn-primary:hover, .nm-btn-primary:hover {
   box-shadow:
-    0 6px 20px rgba(232, 90, 80, .4),
-    inset 0 1px 0 rgba(255, 255, 255, .2);
+    0 6px 20px rgba(var(--accent-rgb), .4),
+    inset 0 1px 0 rgba(var(--white-rgb), .2);
 }
 
 /* =========================
@@ -137,7 +137,7 @@ button, .btn {
 
 .tabs button:hover, .nm-tabs .tab:hover {
   color: var(--text);
-  background: rgba(255, 255, 255, .6);
+  background: rgba(var(--white-rgb), .6);
 }
 
 .tabs button.active, .nm-tabs .tab.is-active {
@@ -187,7 +187,7 @@ button, .btn {
   object-fit: contain;
   display: block;
   border-radius: var(--radius-md);
-  background: linear-gradient(145deg, rgba(255, 255, 255, .8), rgba(245, 245, 245, .9));
+  background: linear-gradient(145deg, rgba(var(--white-rgb), .8), rgba(var(--white-rgb), .9));
 }
 
 /* =========================
@@ -204,9 +204,9 @@ button, .btn {
   overflow: hidden;
   border-radius: calc(var(--radius-xl) - 8px);
   box-shadow:
-    0 10px 40px rgba(150, 150, 150, .2),
-    inset 0 0 0 1px rgba(255, 255, 255, .5);
-  background: #fff;
+    0 10px 40px rgba(var(--muted-rgb), .2),
+    inset 0 0 0 1px rgba(var(--white-rgb), .5);
+  background: var(--surface-hi);
 }
 
 .banner img, .carousel img {
@@ -278,7 +278,7 @@ button, .btn {
 }
 
 .page-title span, h1.title span, h2.section-title span {
-  background: linear-gradient(180deg, transparent 60%, rgba(232, 90, 80, .12) 60%);
+  background: linear-gradient(180deg, transparent 60%, rgba(var(--accent-rgb), .12) 60%);
 }
 
 /* =========================
@@ -356,19 +356,19 @@ input, select, textarea {
 
 .neu-button--primary {
   background: linear-gradient(145deg, var(--accent), var(--accent-dark));
-  color: white;
+  color: rgba(var(--white-rgb), 1);
   font-weight: 600;
   box-shadow:
-    0 4px 15px rgba(232, 90, 80, .3),
-    inset 0 1px 0 rgba(255, 255, 255, .2);
+    0 4px 15px rgba(var(--accent-rgb), .3),
+    inset 0 1px 0 rgba(var(--white-rgb), .2);
   border: none;
 }
 
 .neu-button--primary:hover {
   background: linear-gradient(145deg, var(--accent-dark), var(--accent));
   box-shadow:
-    0 6px 20px rgba(232, 90, 80, .4),
-    inset 0 1px 0 rgba(255, 255, 255, .2);
+    0 6px 20px rgba(var(--accent-rgb), .4),
+    inset 0 1px 0 rgba(var(--white-rgb), .2);
 }
 
 /* =========================
@@ -404,9 +404,9 @@ input, select, textarea {
 .silver-shine {
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, .8) 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(var(--white-rgb), 0) 0%,
+    rgba(var(--white-rgb), .8) 50%,
+    rgba(var(--white-rgb), 0) 100%
   );
   background-size: 200% 100%;
   animation: silverShine 3s ease-in-out infinite;

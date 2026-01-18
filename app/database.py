@@ -44,7 +44,7 @@ def get_product_by_id(product_id):
             )
             images = cursor.fetchall()
             product['detail_images'] = [r['image_url'] for r in images if r['image_type'] == 'detail']
-            product['wearing_shots'] = [r['image_url'] for r in images if r['image_type'] == 'wearing']
+            product['wearing_shots'] = [r['image_url'] for r in images if r['image_type'] == 'wear']
 
         return product
 

@@ -95,44 +95,111 @@
   display: block;
 }
 
-.theme-dropdown {
+/* ==========================================================================
+   Color Picker Dropdown - 컬러 피커 드롭다운
+   ========================================================================== */
+.color-picker-dropdown {
   display: none;
   position: absolute;
-  top: 100%;
-  right: 80px;
+  top: calc(100% + 4px);
+  right: 120px;
+  left: auto;
   background: var(--bg);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-out);
-  padding: 8px 0;
+  padding: 16px;
   z-index: 1001;
-  min-width: 140px;
+  min-width: 200px;
 }
 
-.theme-dropdown.active {
+.color-picker-dropdown.active {
   display: block;
 }
 
-.theme-option {
-  display: block;
-  width: 100%;
-  padding: 10px 16px;
-  border: none;
-  background: transparent;
-  color: var(--text);
+.color-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
   font-size: 13px;
-  text-align: left;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.reset-color-btn {
+  padding: 4px 10px;
+  border: none;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 11px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  box-shadow: var(--shadow-out-soft);
   transition: var(--transition);
 }
 
-.theme-option:hover {
-  background: rgba(0, 0, 0, 0.05);
+.reset-color-btn:hover {
   color: var(--accent);
 }
 
-.theme-option.active {
+.color-picker-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+#accent-color-picker {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: var(--shadow-in);
+}
+
+#accent-color-picker::-webkit-color-swatch-wrapper {
+  padding: 4px;
+}
+
+#accent-color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+.color-value {
+  font-size: 13px;
+  font-family: monospace;
+  color: var(--muted);
+}
+
+.color-mode-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: var(--shadow-out-soft);
+  transition: var(--transition);
+}
+
+.mode-btn:hover {
+  color: var(--text);
+}
+
+.mode-btn.active {
   color: var(--accent);
-  font-weight: 600;
+  box-shadow: var(--shadow-in);
 }
 
 /* ==========================================================================
@@ -169,7 +236,7 @@
 }
 
 .mobile-dropdown a:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--hover-bg);
   color: var(--accent);
 }
 
@@ -405,9 +472,14 @@
     display: inline-flex;
   }
 
-  /* 테마 드롭다운 위치 조정 */
-  .theme-dropdown {
+  /* 드롭다운 위치 조정 */
+  .mobile-dropdown {
     right: 16px;
+  }
+
+  .color-picker-dropdown {
+    right: 16px;
+    left: auto;
   }
 }
 
@@ -435,7 +507,7 @@
     right: 12px;
   }
 
-  .theme-dropdown {
+  .color-picker-dropdown {
     right: 12px;
   }
 }

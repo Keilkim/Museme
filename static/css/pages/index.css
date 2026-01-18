@@ -66,7 +66,7 @@
   width: 48px;
   height: 48px;
   border: none;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(var(--white-rgb), 0.8);
   color: var(--text);
   cursor: pointer;
   transition: var(--transition);
@@ -75,7 +75,7 @@
 }
 
 .banner-arrow:hover {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(var(--white-rgb), 1);
   color: var(--accent);
 }
 
@@ -115,7 +115,7 @@
 
 /* 타이틀 하이라이트 효과 */
 .section-title span {
-  background: linear-gradient(180deg, transparent 60%, rgba(232, 90, 80, .1) 60%);
+  background: linear-gradient(180deg, transparent 60%, rgba(var(--accent-rgb), .1) 60%);
   padding: 0 8px;
 }
 
@@ -176,10 +176,6 @@
   object-fit: contain;
   border-radius: var(--radius-md);
   margin-bottom: 14px;
-  background: linear-gradient(145deg,
-    rgba(255, 255, 255, .8),
-    rgba(248, 248, 248, .9));
-  padding: 8px;
 }
 
 .category-item span {
@@ -375,7 +371,7 @@
   transform: translateX(-50%);
   width: 200px;
   height: 100px;
-  background: radial-gradient(ellipse, rgba(232, 90, 80, .03), transparent 70%);
+  background: radial-gradient(ellipse, rgba(var(--accent-rgb), .03), transparent 70%);
   pointer-events: none;
 }
 
