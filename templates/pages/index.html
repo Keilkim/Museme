@@ -18,18 +18,17 @@
 <!-- 배너 갤러리 (전체 너비) -->
 <section class="banner-gallery">
   <div class="banner-slider">
-    <div class="banner-slide active">
+    <div class="banner-slide active" data-text="TRADITIONAL">
       <img src="{{ url_for('static', filename='images/banners/banner1.png') }}" alt="배너 1">
-      <span class="banner-text">TRADITIONAL</span>
     </div>
-    <div class="banner-slide">
+    <div class="banner-slide" data-text="DAILY">
       <img src="{{ url_for('static', filename='images/banners/banner2.png') }}" alt="배너 2">
-      <span class="banner-text">DAILY</span>
     </div>
-    <div class="banner-slide">
+    <div class="banner-slide" data-text="PRINCESS">
       <img src="{{ url_for('static', filename='images/banners/banner3.png') }}" alt="배너 3">
-      <span class="banner-text">PRINCESS</span>
     </div>
+    <!-- 배너 텍스트 (슬라이더 레벨에 배치) -->
+    <span class="banner-text">TRADITIONAL</span>
     <!-- 양옆 화살표 -->
     <button class="banner-arrow banner-prev" aria-label="이전">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">

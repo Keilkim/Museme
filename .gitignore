@@ -34,3 +34,7 @@ Thumbs.db
 # Temp
 *.tmp
 *.temp
+
+# 작업용 파일 (DB에 반영 완료)
+*_소개글.txt
+브랜드 이미지/

@@ -184,10 +184,14 @@
   margin-bottom: 60px;
 }
 
+/* 대표 이미지 - 뉴모피즘 볼륨감 */
 .product-detail-section .main-image {
   width: 100%;
   margin-bottom: 32px;
   border-radius: var(--radius-lg);
+  background: var(--bg);
+  padding: 16px;
+  box-shadow: var(--shadow-out);
 }
 
 /* 상품 설명 - 뉴모피즘 */
@@ -202,18 +206,37 @@
   box-shadow: var(--shadow-out-soft);
 }
 
-.detail-image-group,
-.wearing-shot-group {
+.detail-image-group {
   display: grid;
-  gap: 16px;
+  gap: 24px;
+  margin-bottom: 48px;
 }
 
-.detail-image-group img,
+.wearing-shot-group {
+  display: grid;
+  gap: 24px;
+}
+
+/* 상세 이미지 - 뉴모피즘 볼륨감 */
+.detail-image-group img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  padding: 12px;
+  box-shadow: var(--shadow-out);
+}
+
+/* 착용샷 이미지 - 뉴모피즘 볼륨감 */
 .wearing-shot-group img {
   width: 100%;
   aspect-ratio: 3/4;
   object-fit: cover;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  padding: 12px;
+  box-shadow: var(--shadow-out);
 }
 
 /* 구매 전 확인 사항 - 뉴모피즘 */
@@ -269,6 +292,27 @@
 
   .purchase-notice {
     padding: 24px;
+    border-radius: var(--radius-md);
+  }
+
+  .product-detail-section .main-image {
+    padding: 12px;
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+  }
+
+  .detail-image-group {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .wearing-shot-group {
+    gap: 16px;
+  }
+
+  .detail-image-group img,
+  .wearing-shot-group img {
+    padding: 8px;
     border-radius: var(--radius-md);
   }
 }

@@ -34,9 +34,10 @@ class HeaderManager {
     this.bindEvents();
     this.updateAuthUI();
     this.setActiveTab();
-    this.applyColorTheme(this.currentAccentColor, this.currentMode);
+    // 컬러 테마 비활성화 - 흰색 배경 유지
+    // this.applyColorTheme(this.currentAccentColor, this.currentMode);
     this.hideThemeBtnOnDate();
-    this.updateColorPickerUI();
+    // this.updateColorPickerUI();
   }
 
   /**

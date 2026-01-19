@@ -5,20 +5,20 @@
 
 :root {
   /* ===== RGB 값 (alpha 조합용) ===== */
-  --bg-rgb: 255, 255, 255;
+  --bg-rgb: 240, 240, 243;
   --text-rgb: 30, 30, 30;
   --muted-rgb: 107, 107, 107;
   --accent-rgb: 232, 90, 80;
   --white-rgb: 255, 255, 255;
   --black-rgb: 0, 0, 0;
-  --shadow-dark-rgb: 200, 200, 200;
+  --shadow-dark-rgb: 180, 180, 190;
   --shadow-light-rgb: 255, 255, 255;
 
-  /* ===== base palette (화이트 배경) ===== */
-  --bg: #FFFFFF;
-  --surface: #FFFFFF;
+  /* ===== base palette (밝은 배경 - 뉴모피즘) ===== */
+  --bg: #F0F0F3;
+  --surface: #F0F0F3;
   --surface-hi: #FFFFFF;
-  --surface-lo: #F0F0F0;
+  --surface-lo: #D1D1D6;
 
   /* 텍스트 - 다크 차콜 */
   --text: #1E1E1E;

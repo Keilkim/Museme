@@ -54,18 +54,22 @@
   background: var(--bg);
 }
 
-/* 배너 텍스트 */
+/* 배너 텍스트 - 슬라이더 내부 하단 중앙 (이미지 위에 오버레이) */
 .banner-text {
   position: absolute;
-  bottom: 24px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 5;
   font-family: 'Pretendard', sans-serif;
   font-weight: 700;
   font-size: 14px;
   text-transform: uppercase;
   color: var(--text);
   letter-spacing: 3px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 10px 24px;
+  border-radius: 4px;
 }
 
 /* 배너 양옆 화살표 */
@@ -262,7 +266,8 @@
 
   .banner-text {
     font-size: 13px;
-    bottom: 20px;
+    bottom: 30px;
+    padding: 6px 16px;
   }
 }
 
@@ -324,8 +329,9 @@
 
   .banner-text {
     font-size: 12px;
-    bottom: 16px;
+    bottom: 24px;
     letter-spacing: 2px;
+    padding: 5px 14px;
   }
 }
 
@@ -384,8 +390,9 @@
 
   .banner-text {
     font-size: 11px;
-    bottom: 12px;
+    bottom: 16px;
     letter-spacing: 1.5px;
+    padding: 4px 12px;
   }
 }
 

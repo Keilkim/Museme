@@ -17,6 +17,7 @@ class BannerSlider {
     this.slides = container.querySelectorAll('.banner-slide');
     this.prevBtn = container.querySelector('.banner-prev');
     this.nextBtn = container.querySelector('.banner-next');
+    this.bannerText = container.querySelector('.banner-text');
     this.currentIndex = 0;
     this.autoPlayInterval = null;
     this.autoPlayDelay = 5000;
@@ -113,7 +114,13 @@ class BannerSlider {
     this.currentIndex = (index + this.slides.length) % this.slides.length;
 
     // 새 슬라이드 활성화
-    this.slides[this.currentIndex].classList.add('active');
+    const newSlide = this.slides[this.currentIndex];
+    newSlide.classList.add('active');
+
+    // 배너 텍스트 업데이트
+    if (this.bannerText && newSlide.dataset.text) {
+      this.bannerText.textContent = newSlide.dataset.text;
+    }
   }
 
   /**
