@@ -108,12 +108,12 @@
   gap: 24px;
 }
 
-/* 로고 - 뉴모피즘 */
+/* 로고 */
 .footer-logo {
   background: var(--bg);
   border-radius: var(--radius-lg);
   padding: 16px 24px;
-  box-shadow: var(--shadow-out-soft);
+  box-shadow: none;
 }
 
 .footer-logo img {
@@ -129,7 +129,7 @@
 }
 
 .footer-logo:hover {
-  box-shadow: var(--shadow-hover);
+  box-shadow: none;
 }
 
 /* SNS Links - 뉴모피즘 버튼 */

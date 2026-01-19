@@ -28,17 +28,21 @@ class ProductDetail {
 
     document.getElementById('main-product-image').src = p.thumbnail;
     document.getElementById('product-name').textContent = p.name;
-    document.getElementById('product-material').textContent = `소재: ${p.material}`;
     document.getElementById('buy-price').textContent = this.formatPrice(p.buy_price);
     document.getElementById('rent-price').textContent = this.formatPrice(p.rent_price);
     document.getElementById('representative-image').src = p.main_image || p.thumbnail;
     document.getElementById('product-description').textContent = p.description;
 
-    // 옵션 렌더링
+    // 옵션 렌더링 (반지만 13호, 18호 옵션 표시)
+    const optionsSection = document.querySelector('.options-section');
     const optionsSelect = document.getElementById('product-options');
-    if (p.options && p.options.length > 0) {
+    if (p.category === 'ring') {
+      optionsSection.style.display = 'block';
       optionsSelect.innerHTML = '<option value="">옵션을 선택하세요</option>' +
-        p.options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+        '<option value="13호">13호</option>' +
+        '<option value="18호">18호</option>';
+    } else {
+      optionsSection.style.display = 'none';
     }
 
     // 디테일 이미지
@@ -84,17 +88,20 @@ class ProductDetail {
 
   buyNow() {
     const option = document.getElementById('product-options').value;
-    if (!option) {
+    // 반지일 경우에만 옵션 필수
+    if (this.product.category === 'ring' && !option) {
       alert('옵션을 선택해주세요.');
       return;
     }
-    alert(`${this.purchaseType === 'buy' ? '구매' : '대여'} 진행: ${this.product.name} (${option})`);
+    const optionText = option ? ` (${option})` : '';
+    alert(`${this.purchaseType === 'buy' ? '구매' : '대여'} 진행: ${this.product.name}${optionText}`);
     // 실제 구매 로직 구현
   }
 
   addToCart() {
     const option = document.getElementById('product-options').value;
-    if (!option) {
+    // 반지일 경우에만 옵션 필수
+    if (this.product.category === 'ring' && !option) {
       alert('옵션을 선택해주세요.');
       return;
     }
