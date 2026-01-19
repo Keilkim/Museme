@@ -7,78 +7,41 @@
   min-height: 100vh;
 }
 
-.intro-section {
+/* 브랜드 갤러리 */
+.brand-gallery {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* 인트로 이미지 - 뉴모피즘 */
-.intro-image-wrapper {
-  margin-bottom: 40px;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
+/* 뉴모피즘 박스 */
+.brand-box {
   background: var(--bg);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-out);
-  padding: 16px;
+  padding: 24px;
+  overflow: hidden;
 }
 
-.intro-image {
+.brand-box:hover {
+  transform: none;
+  box-shadow: var(--shadow-out);
+}
+
+.brand-box img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: calc(var(--radius-xl) - 8px);
-}
-
-/* 인트로 콘텐츠 - 뉴모피즘 */
-.intro-content {
-  padding: 40px;
-  border-radius: var(--radius-lg);
-  text-align: center;
-  background: var(--bg);
-  box-shadow: var(--shadow-out);
-}
-
-.intro-content h1 {
-  font-size: 32px;
-  margin-bottom: 24px;
-  color: var(--text);
-}
-
-.intro-content p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--muted);
-  max-width: 600px;
-  margin: 0 auto 16px;
 }
 
 /* 반응형 */
 @media (max-width: 767px) {
-  .intro-section {
+  .brand-gallery {
     padding: 24px 16px;
   }
 
-  .intro-image-wrapper {
-    padding: 12px;
+  .brand-box {
+    padding: 16px;
     border-radius: var(--radius-lg);
-    margin-bottom: 24px;
-  }
-
-  .intro-image {
-    border-radius: calc(var(--radius-lg) - 6px);
-  }
-
-  .intro-content {
-    padding: 24px;
-    border-radius: var(--radius-md);
-  }
-
-  .intro-content h1 {
-    font-size: 24px;
-  }
-
-  .intro-content p {
-    font-size: 14px;
   }
 }
